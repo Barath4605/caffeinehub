@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FiExternalLink } from "react-icons/fi";
 import HomepageModal from "./components/homepage-modal";
 import VideoPlayer from "./components/videos";
@@ -6,19 +6,12 @@ import "./index.css";
 
 const App = () => {
   const links = [
-    {
-      href: "#",
-      label: "Coffee 101",
-    },
-    {
-      href: "#",
-      label: "Brewing 101",
-    },
-    {
-      href: "#",
-      label: "Our Top Picks",
-    },
+    { href: "#", label: "Coffee 101" },
+    { href: "#", label: "Brewing 101" },
+    { href: "#", label: "Beans 101" },
+    { href: "#", label: "Our Top Picks" },
   ];
+
   const VideoLinks = [
     {
       src: "https://assets.mixkit.co/videos/3576/3576-720.mp4",
@@ -35,21 +28,30 @@ const App = () => {
   ];
 
   const [currentVideoSrc, setCurrentVideoSrc] = useState(VideoLinks[0].src);
-  const [currentVideoTag, setCurrentVideoTag] = useState(VideoLinks[0].tag);
+  const [currentVideoTag, setCurrentVideoTag] = useState(VideoLinks.tag);
+
+  const videoRef = useRef(null);
+
+  const skipToIndex = (index) => {
+    const next = VideoLinks[index];
+    setCurrentVideoSrc(next.src);
+    setCurrentVideoTag(next.tag);
+    setTimeout(() => {
+      videoRef.current?.play?.().catch(() => {});
+    }, 0);
+  };
 
   return (
     <>
       <div className="absolute montserrat flex items-center space-x-5 z-10 justify-evenly w-full bottom-10">
         <div>
-          <HomepageModal></HomepageModal>
+          <HomepageModal />
         </div>
+
         <div className="group flex items-center space-x-2">
-          <a
-            className="font-semibold text-white/70 group-hover:text-white transition-all ease-in-out duration-500"
-            href="#"
-          >
+          <span className="font-semibold text-white/70 group-hover:text-white transition-all ease-in-out duration-500">
             {currentVideoTag}
-          </a>
+          </span>
           <a
             href="https://example.com"
             target="_blank"
@@ -65,22 +67,24 @@ const App = () => {
 
       <main className="relative h-screen">
         <video
-          className="absolute top-0 left-0 w-full h-full object-cover"
+          ref={videoRef}
+          className="absolute top-0 left-0 w-full h-full object-cover bg-black"
           src={currentVideoSrc}
           muted
           autoPlay
-          loop
           playsInline
-          // onEnded={() => {
-          //   const currentIndex = VideoLinks.findIndex(
-          //     (v) => v.src === currentVideoSrc
-          //   );
-          //   const nextIndex = (currentIndex + 1) % VideoLinks.length;
-          //   setCurrentVideoSrc(VideoLinks[nextIndex].src);
-          //   setCurrentVideoTag(VideoLinks[nextIndex].tag);
-          // }}
+          onEnded={() => {
+            const currentIndex = VideoLinks.findIndex(
+              (v) => v.src === currentVideoSrc
+            );
+            const nextIndex = (currentIndex + 1) % VideoLinks.length;
+            setCurrentVideoSrc(VideoLinks[nextIndex].src);
+            setCurrentVideoTag(VideoLinks[nextIndex].tag);
+            setTimeout(() => {
+              videoRef.current?.play?.().catch(() => {});
+            }, 0);
+          }}
         />
-
         <section className="absolute w-full">
           <div className="flex justify-between items-center p-3 px-5 text-white/60">
             <div>
@@ -93,25 +97,26 @@ const App = () => {
 
             <div>
               <ul className="flex flex-wrap justify-center gap-5 p-2 text-white">
-                {links.map((link) => {
-                  return (
-                    <li key={link.label} className="text-white">
-                      <a
-                        href={link.href}
-                        className="hover:border-white/60 border-b border-transparent p-1 transition-all ease-in-out duration-500"
-                      >
-                        {link.label}
-                      </a>
-                    </li>
-                  );
-                })}
+                {links.map((link) => (
+                  <li key={link.label} className="text-white">
+                    <a
+                      href={link.href}
+                      className="hover:border-white/60 border-b border-transparent p-1 transition-all ease-in-out duration-500"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
         </section>
+
+        {/* Preview player (tap to play next) */}
         <VideoPlayer
           currentIndex={VideoLinks.findIndex((v) => v.src === currentVideoSrc)}
           VideoLinks={VideoLinks}
+          onSelect={skipToIndex}
         />
       </main>
     </>
