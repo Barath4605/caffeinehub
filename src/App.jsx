@@ -68,7 +68,10 @@ const App = () => {
       <main className="relative h-screen">
         <video
           ref={videoRef}
-          className="absolute top-0 left-0 w-full h-full object-cover bg-black"
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          style={{
+            backgroundVideo: `url(${currentVideoSrc})`,
+          }}
           src={currentVideoSrc}
           muted
           autoPlay
