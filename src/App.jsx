@@ -25,10 +25,18 @@ const App = () => {
       src: "https://assets.mixkit.co/videos/47954/47954-720.mp4",
       tag: "Brew the extravagant shot of espresso",
     },
+    {
+      src: "https://videos.pexels.com/video-files/7301092/7301092-uhd_2560_1440_25fps.mp4",
+      tag: "Learn how to use a French press to make rich, full-bodied coffee and much more...",
+    },
+    {
+      src: "https://videos.pexels.com/video-files/6280329/6280329-uhd_2560_1440_25fps.mp4",
+      tag: "Explore the world of coffee beans, it's origin, roasting techniques and its types.",
+    },
   ];
 
   const [currentVideoSrc, setCurrentVideoSrc] = useState(VideoLinks[0].src);
-  const [currentVideoTag, setCurrentVideoTag] = useState(VideoLinks.tag);
+  const [currentVideoTag, setCurrentVideoTag] = useState(VideoLinks[0].tag);
 
   const videoRef = useRef(null);
 
@@ -48,7 +56,7 @@ const App = () => {
           <HomepageModal />
         </div>
 
-        <div className="group flex items-center space-x-2">
+        <div className="group flex items-center space-x-2 cursor-pointer p-1">
           <span className="font-semibold text-white/70 group-hover:text-white transition-all ease-in-out duration-500">
             {currentVideoTag}
           </span>
@@ -65,7 +73,7 @@ const App = () => {
         <div></div>
       </div>
 
-      <main className="relative h-screen">
+      <main className="relative h-screen bg-black">
         <video
           ref={videoRef}
           className="absolute top-0 left-0 w-full h-full object-cover"
@@ -114,8 +122,6 @@ const App = () => {
             </div>
           </div>
         </section>
-
-        {/* Preview player (tap to play next) */}
         <VideoPlayer
           currentIndex={VideoLinks.findIndex((v) => v.src === currentVideoSrc)}
           VideoLinks={VideoLinks}
