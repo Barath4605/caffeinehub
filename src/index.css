@@ -100,22 +100,44 @@
 
 /* COLORS */
 
-.coffee-brown-100 {
+/* text colors */
+.brown-100 {
   color: #9c6f44;
 }
 
-.coffee-brown-200 {
+.brown-200 {
   color: #724e2c;
 }
 
-.coffee-brown-300 {
+.brown-300 {
   color: #6f4827;
 }
 
-.coffee-brown-400 {
+.brown-400 {
   color: #563517;
 }
 
-.coffee-brown-500 {
+.brown-500 {
   color: #271300;
+}
+
+/* background colors */
+.bg-brown-100 {
+  background-color: #9c6f44;
+}
+
+.bg-brown-200 {
+  background-color: #724e2c;
+}
+
+.bg-brown-300 {
+  background-color: #6f4827;
+}
+
+.bg-brown-400 {
+  background-color: #563517;
+}
+
+.bg-brown-500 {
+  background-color: #271300;
 }

@@ -1,15 +1,17 @@
 import { useRef, useState } from "react";
 import { FiExternalLink } from "react-icons/fi";
+import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import CoffeePg from "./coffee-101";
 import HomepageModal from "./components/homepage-modal";
 import VideoPlayer from "./components/videos";
 import "./index.css";
 
 const App = () => {
   const links = [
-    { href: "#", label: "Coffee 101" },
-    { href: "#", label: "Brewing 101" },
-    { href: "#", label: "Beans 101" },
-    { href: "#", label: "Our Top Picks" },
+    { href: "/coffee-101", label: "Coffee 101" },
+    { href: "/brewing-101", label: "Brewing 101" },
+    { href: "/beans-101", label: "Beans 101" },
+    { href: "/top-picks", label: "Our Top Picks" },
   ];
 
   const VideoLinks = [
@@ -50,85 +52,96 @@ const App = () => {
   };
 
   return (
-    <>
-      <div className="absolute montserrat flex items-center space-x-5 z-10 justify-evenly w-full bottom-10">
-        <div>
-          <HomepageModal />
-        </div>
-
-        <div className="group flex items-center space-x-2 cursor-pointer p-1">
-          <span className="font-semibold text-white/70 group-hover:text-white transition-all ease-in-out duration-500">
-            {currentVideoTag}
-          </span>
-          <a
-            href="https://example.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white/70 group-hover:text-white transition-all duration-500"
-          >
-            <FiExternalLink />
-          </a>
-        </div>
-        <div></div>
-        <div></div>
-      </div>
-
-      <main className="relative h-screen bg-black">
-        <video
-          ref={videoRef}
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          style={{
-            backgroundVideo: `url(${currentVideoSrc})`,
-          }}
-          src={currentVideoSrc}
-          muted
-          autoPlay
-          playsInline
-          onEnded={() => {
-            const currentIndex = VideoLinks.findIndex(
-              (v) => v.src === currentVideoSrc
-            );
-            const nextIndex = (currentIndex + 1) % VideoLinks.length;
-            setCurrentVideoSrc(VideoLinks[nextIndex].src);
-            setCurrentVideoTag(VideoLinks[nextIndex].tag);
-            setTimeout(() => {
-              videoRef.current?.play?.().catch(() => {});
-            }, 0);
-          }}
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <div className="absolute montserrat flex items-center space-x-5 z-10 justify-evenly w-full bottom-10">
+                <div>
+                  <HomepageModal />
+                </div>
+                <div className="group flex items-center space-x-2 cursor-pointer p-1">
+                  <span className="font-semibold text-white/70 group-hover:text-white transition-all ease-in-out duration-500">
+                    {currentVideoTag}
+                  </span>
+                  <a
+                    href="https://example.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/70 group-hover:text-white transition-all duration-500"
+                  >
+                    <FiExternalLink />
+                  </a>
+                </div>
+                <div></div>
+                <div></div>
+              </div>
+              <main className="relative h-screen bg-black">
+                <video
+                  ref={videoRef}
+                  className="absolute top-0 left-0 w-full h-full object-cover"
+                  style={{
+                    backgroundVideo: `url(${currentVideoSrc})`,
+                  }}
+                  src={currentVideoSrc}
+                  muted
+                  autoPlay
+                  playsInline
+                  onEnded={() => {
+                    const currentIndex = VideoLinks.findIndex(
+                      (v) => v.src === currentVideoSrc
+                    );
+                    const nextIndex = (currentIndex + 1) % VideoLinks.length;
+                    setCurrentVideoSrc(VideoLinks[nextIndex].src);
+                    setCurrentVideoTag(VideoLinks[nextIndex].tag);
+                    setTimeout(() => {
+                      videoRef.current?.play?.().catch(() => {});
+                    }, 0);
+                  }}
+                />
+                <section className="absolute w-full">
+                  <div className="flex justify-between items-center p-3 px-5 text-white/60">
+                    <div>
+                      <h3 className="text-5xl font-bold">
+                        caffeinehub
+                        <span className="text-sm font-semibold">.com</span>{" "}
+                      </h3>
+                      <h2 className="text-xl font-light">
+                        For Caffeinated Heads
+                      </h2>
+                    </div>
+                    <div>
+                      <ul className="flex flex-wrap justify-center gap-5 p-2 text-white">
+                        {links.map((link) => (
+                          <li key={link.label} className="text-white">
+                            <Link
+                              to={link.href}
+                              className="hover:border-white/60 border-b border-transparent p-1 transition-all ease-in-out duration-500"
+                            >
+                              {link.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </section>
+                <VideoPlayer
+                  currentIndex={VideoLinks.findIndex(
+                    (v) => v.src === currentVideoSrc
+                  )}
+                  VideoLinks={VideoLinks}
+                  onSelect={skipToIndex}
+                />
+              </main>
+            </>
+          }
         />
-        <section className="absolute w-full">
-          <div className="flex justify-between items-center p-3 px-5 text-white/60">
-            <div>
-              <h3 className="text-5xl font-bold">
-                caffeinehub
-                <span className="text-sm font-semibold">.com</span>{" "}
-              </h3>
-              <h2 className="text-xl font-light">For Caffeinated Heads</h2>
-            </div>
-
-            <div>
-              <ul className="flex flex-wrap justify-center gap-5 p-2 text-white">
-                {links.map((link) => (
-                  <li key={link.label} className="text-white">
-                    <a
-                      href={link.href}
-                      className="hover:border-white/60 border-b border-transparent p-1 transition-all ease-in-out duration-500"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
-        <VideoPlayer
-          currentIndex={VideoLinks.findIndex((v) => v.src === currentVideoSrc)}
-          VideoLinks={VideoLinks}
-          onSelect={skipToIndex}
-        />
-      </main>
-    </>
+        <Route path="/coffee-101" element={<CoffeePg />} />
+      </Routes>
+    </Router>
   );
 };
 

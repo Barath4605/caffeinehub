@@ -5,7 +5,7 @@ const VideoPlayer = ({ currentIndex, VideoLinks, onSelect }) => {
     <div className="absolute top-1/5 right-2 flex justify-end w-full">
       <div className="group flex flex-col items-center">
         <video
-          className="w-[330px] h-[180px] grayscale rounded object-cover group-hover:grayscale-0 transition-all ease-in-out duration-00 cursor-pointer"
+          className="w-[330px] h-[180px] grayscale rounded object-cover border border-transparent group-hover:grayscale-0 group-hover:border-white/40 transition-all ease-in-out duration-400 cursor-pointer"
           src={VideoLinks[nextIndex].src}
           onClick={() => onSelect(nextIndex)}
           muted
