@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Culture from "./components/coffee-101-body/culture-101";
 import Instant from "./components/coffee-101-body/instant-101";
 import Science from "./components/coffee-101-body/science-101";
@@ -8,29 +7,42 @@ import Tabs from "./components/ui/Tabs";
 import "./index.css";
 
 const CoffeePg = () => {
+  const tabClass =
+    "m-10 bg-gradient-to-b bg-gradient-to-b from-orange-600/50 via-yellow-400/30 to-orange-800/20 rounded-2xl backdrop-blur-2xl";
   const tabs = [
     {
       title: "Types of Coffee",
-      brief:
-        "Explore all the different types of Coffees from espresso shots to an americano to gesha...",
+      content: (
+        <div className={tabClass}>
+          <Types />
+        </div>
+      ),
     },
     {
       title: "Culture of Coffee",
-      brief:
-        "Learn the history of coffee, its origin, how it spread across the world and much more...",
+      content: (
+        <div className={tabClass}>
+          <Culture />
+        </div>
+      ),
     },
     {
       title: "Science & Health",
-      brief:
-        "Know the health benefits of coffee, how it affects your body and mind and the science behind it...",
+      content: (
+        <div className={tabClass}>
+          <Science />
+        </div>
+      ),
     },
     {
       title: "Instant Coffee",
-      brief: "Overrated or Overhated ??",
+      content: (
+        <div className={tabClass}>
+          <Instant />
+        </div>
+      ),
     },
   ];
-
-  const [switchPage, setSwitchPage] = useState(0);
 
   return (
     <>
@@ -41,17 +53,14 @@ const CoffeePg = () => {
       <Tabs
         tabs={tabs.map((tab, index) => ({
           ...tab,
+          key: index,
           value: tab.title,
-          onClick: () => setSwitchPage(index),
         }))}
         containerClassName="w-fit m-5 bg-brown-100 rounded-full p-2 text-black m-auto border-t-5 border-amber-950/40"
         tabClassName="mx-2 cursor-pointer"
         activeTabClassName="bg-brown-200 text-2xl"
+        contentClassName=""
       />
-      {switchPage == 0 && <Types />}
-      {switchPage == 1 && <Culture />}
-      {switchPage == 2 && <Science />}
-      {switchPage == 3 && <Instant />}
     </>
   );
 };

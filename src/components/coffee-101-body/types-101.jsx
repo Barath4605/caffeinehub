@@ -51,7 +51,7 @@ const Types = () => {
   ];
 
   return (
-    <main className="w-[90%] h-full m-auto my-10 bg-amber-600/40 rounded-md p-5">
+    <main className="w-[90%] h-full m-auto my-10 rounded-md p-5">
       <div className="my-5">
         <h1 className="brown-200 my-2 font-bold text-2xl montserrat">
           1. The Types of Coffee
@@ -73,6 +73,7 @@ const Types = () => {
       </div>
       {types.map((type) => (
         <Card
+          key={type.title}
           title={type.title}
           p1={type.p1}
           p2={type.p2}
