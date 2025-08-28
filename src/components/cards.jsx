@@ -2,7 +2,7 @@ import "../index.css";
 import Card from "./ui/comet-card";
 const Cards = ({ title, p1, p2, p3, src, alt, desc }) => {
   return (
-    <section className="p-5 ">
+    <section className="p-5">
       <h1 className="text-3xl lato-bold brown-300 my-3">{title}</h1>
       <div className="flex justify-items-start items-center">
         <div className="flex flex-col gap-2 w-[80%]">
@@ -19,7 +19,7 @@ const Cards = ({ title, p1, p2, p3, src, alt, desc }) => {
             {p3}
           </p>
         </div>
-        <Card>
+        <Card translateDepth={4} rotateDepth={5}>
           <img
             className="w-[350px] h-[350px] object-cover p-2 rounded-2xl"
             src={src}

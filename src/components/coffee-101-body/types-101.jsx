@@ -1,7 +1,32 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 import "../../index.css";
 import Card from "../cards";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Types = () => {
+  const typesRef = useRef(null);
+
+  useGSAP(() => {
+    gsap.to(typesRef.current, {
+      scrollTrigger: {
+        trigger: typesRef.current,
+        start: "top bottom",
+        end: "center top",
+        toggleActions: "play restart restart reverse",
+        scrub: true,
+      },
+      scale: "1",
+      boxShadow: "0 4px 15px rgba(0, 0, 0, 0.3)",
+      borderRadius: "0px",
+      duration: 1,
+      ease: "power2.out",
+    });
+  }, [typesRef]);
+
   const types = [
     {
       title: "Espresso",
@@ -51,8 +76,8 @@ const Types = () => {
   ];
 
   return (
-    <main className="w-[90%] h-full m-auto my-10 rounded-md p-5">
-      <div className="my-5">
+    <main className="rounded-2xl">
+      <div className="my-5 p-5">
         <h1 className="brown-200 my-2 font-bold text-2xl montserrat">
           1. The Types of Coffee
         </h1>
@@ -66,23 +91,29 @@ const Types = () => {
         </p>
       </div>
 
-      <div className="my-5">
-        <h1 className="brown-200 my-2 font-bold text-3xl montserrat">
-          The Barista Pops - 101
+      <div className="my-5 p-5">
+        <h1 className="brown-200 my-2 font-bold text-4xl montserrat text-center">
+          The Barista Populars - 101
         </h1>
       </div>
-      {types.map((type) => (
-        <Card
-          key={type.title}
-          title={type.title}
-          p1={type.p1}
-          p2={type.p2}
-          p3={type.p3}
-          src={type.src}
-          alt={type.alt}
-          desc={type.desc}
-        ></Card>
-      ))}
+      <div
+        id="types"
+        ref={typesRef}
+        className="m-auto scale-90 bg-gradient-to-b shadow-black shadow-2xl from-red-400/30 via-red-200/70 to-orange-800/20 rounded-2xl backdrop-blur-2xl"
+      >
+        {types.map((type) => (
+          <Card
+            key={type.title}
+            title={type.title}
+            p1={type.p1}
+            p2={type.p2}
+            p3={type.p3}
+            src={type.src}
+            alt={type.alt}
+            desc={type.desc}
+          />
+        ))}
+      </div>
     </main>
   );
 };
