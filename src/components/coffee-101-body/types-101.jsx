@@ -90,6 +90,7 @@ const Types = () => {
           between a cold brew and a cold coffee and much more...
         </p>
       </div>
+      <cardFullView />
 
       <div className="my-5 p-5">
         <h1 className="brown-200 my-2 font-bold text-4xl montserrat text-center">
