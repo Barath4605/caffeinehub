@@ -1,11 +1,14 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+
 import { useRef } from "react";
 import "../../index.css";
 import Card from "../cards";
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(SplitText);
 
 const Types = () => {
   const typesRef = useRef(null);
@@ -27,24 +30,56 @@ const Types = () => {
     });
   }, [typesRef]);
 
+  useGSAP(() => {
+    const split = SplitText.create("#header", {
+      type: "words, chars, lines",
+    });
+
+    gsap.from(split.chars, {
+      autoAlpha: 0,
+      delay: 0.4,
+      y: 80,
+      stagger: {
+        amount: 0.1,
+        from: "end",
+      },
+    });
+  });
+
+  useGSAP(() => {
+    const split = SplitText.create("#headerPara", {
+      type: "words, chars, lines",
+    });
+
+    gsap.from(split.words, {
+      autoAlpha: 0,
+      delay: 1,
+      y: 40,
+      stagger: {
+        amount: 0.4,
+        from: "end",
+      },
+    });
+  });
+
   const types = [
     {
       title: "Espresso",
       p1: "Espresso is brewed by forcing hot water (90–96°C) through finely ground coffee under high pressure (about 9 bars). You need an espresso machine, fresh water, and finely ground beans. The machine’s portafilter holds the coffee, and the pump pushes water through to extract a concentrated shot with a layer of crema on top.",
       p2: "Espresso is bold, rich, and intense, packing a punch in just 25–30 ml. It has a thick, velvety texture with a slightly bitter, smoky flavor. The crema adds a smooth, aromatic layer, making each sip feel dense and powerful despite the small volume.",
       p3: "Espresso is the base for most coffee drinks—lattes, cappuccinos, macchiatos, mochas, and Americanos all start here. It can also be enjoyed straight as a single or double shot for a quick caffeine kick. Variations like ristretto (shorter, stronger pull) or lungo (longer, milder pull) give it some versatility.",
+
       src: "https://images.pexels.com/photos/4736557/pexels-photo-4736557.jpeg",
       alt: "Image of Espresso",
-      desc: "Freshly Brewed Espresso",
     },
     {
       title: "Latte",
       p1: "A latte is made by combining one or two shots of espresso with a large amount of steamed milk and a thin layer of milk foam on top. You need an espresso machine, fresh milk, and finely ground coffee. The steamed milk softens the espresso’s intensity and creates a creamy, smooth texture.",
       p2: "Lattes are mild and creamy, with the espresso flavor softened by the milk. The light foam adds a silky finish, making it gentle on the palate and perfect for those who prefer a less intense coffee experience.",
       p3: "Lattes are commonly enjoyed as a comforting morning drink or paired with breakfast. They can be flavored with syrups like vanilla or caramel, and they also serve as the base for latte art, making them visually appealing as well as tasty.",
+
       src: "https://images.pexels.com/photos/29162923/pexels-photo-29162923.jpeg",
       alt: "Image of Latte",
-      desc: "A cup of Latte with Latte Art",
     },
     {
       title: "Cappuccino",
@@ -53,7 +88,6 @@ const Types = () => {
       p3: "Cappuccinos are often enjoyed in the morning as a classic breakfast drink. They are also a favorite in cafés for their visual appeal and foam art, and they can be served with a sprinkle of cocoa or cinnamon for extra flavor.",
       src: "https://www.mashed.com/img/gallery/upgrade-your-at-home-latte-with-a-dusting-of-chocolate-powder/l-intro-1712003442.jpg",
       alt: "Image of Cappuccino",
-      desc: "A cup of Cappuccino with Cocoa Powder",
     },
     {
       title: "Americano",
@@ -62,7 +96,6 @@ const Types = () => {
       p3: "Americanos are ideal for those who want a longer coffee without losing the espresso essence. They can be enjoyed black or with milk and sugar, and they’re a popular choice for work or study sessions due to their drinkable size and moderate intensity.",
       src: "https://images.pexels.com/photos/25482736/pexels-photo-25482736.jpeg",
       alt: "Image of Americano",
-      desc: "A cup of Americano with Coffee Beans",
     },
     {
       title: "Frappe",
@@ -71,17 +104,22 @@ const Types = () => {
       p3: "Frappes are perfect for hot weather or as a treat, often served in cafés as a dessert-like beverage. They’re popular with students and young adults who want a cold, caffeinated pick-me-up that’s more playful than a standard espresso drink.",
       src: "https://images.pexels.com/photos/5211575/pexels-photo-5211575.jpeg",
       alt: "Image of Frappe",
-      desc: "A glass of Frappe",
     },
   ];
 
   return (
     <main className="rounded-2xl">
       <div className="my-5 p-2 h-full bg-evergreen">
-        <h1 className="opacity-100 almond-cream my-2 p-1 font-bold text-4xl montserrat text-center">
-          The Barista Populars - 101
+        <h1
+          className="opacity-100 almond-cream my-2 p-1 font-bold text-4xl montserrat text-center"
+          id="header"
+        >
+          The Barista Populars 101
         </h1>
-        <p className="w-[60%] m-auto text-justify lato-regular text-md almond-cream">
+        <p
+          className="w-[60%] m-auto text-justify lato-regular text-md almond-cream"
+          id="headerPara"
+        >
           No matter how much you know about coffee in this section you will get
           to know all about coffee, so that the next time you go to Starbucks
           you won't get overwhelmed by your friend ordering a "No Skim Latte
@@ -90,7 +128,7 @@ const Types = () => {
           between a cold brew and a cold coffee and much more...
         </p>
       </div>
-      <div id="types" className="m-auto scale-90 rounded-2xl" ref={typesRef}>
+      <div id="types" className="m-auto scale-80 rounded-2xl" ref={typesRef}>
         {types.map((type) => (
           <Card
             className="my-10 p-5 rounded-2xl"
@@ -101,7 +139,6 @@ const Types = () => {
             p3={type.p3}
             src={type.src}
             alt={type.alt}
-            desc={type.desc}
           />
         ))}
       </div>
