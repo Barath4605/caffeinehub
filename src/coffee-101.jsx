@@ -13,26 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const CoffeePg = () => {
   const container = useRef(null);
-  // useGSAP(
-  //   () => {
-  //     gsap.to("#types", {
-  //       scrollTrigger: {
-  //         trigger: "#types",
-  //         start: "top center",
-  //         end: "center center",
-  //         toggleActions: "play restart restart reverse",
-  //         scrub: true,
-  //       },
-  //       scale: "1",
-  //       borderRadius: "0px",
-  //       duration: 1,
-  //       ease: "power2.out",
-  //     });
-  //   },
-  //   { scope: container }
-  // );
-  const tabClass =
-    "bg-gradient-to-b bg-gradient-to-b from-orange-600/50 via-yellow-400/30 to-orange-800/20 backdrop-blur-2xl";
+  const tabClass = "almond-cream bg-evergreen";
   const tabs = [
     {
       title: "Types of Coffee",
@@ -70,7 +51,7 @@ const CoffeePg = () => {
 
   return (
     <>
-      <div ref={container}>
+      <main className="bg-evergreen h-full " ref={container}>
         <Header
           title="Coffee 101"
           tagline="an espresso before the depresso"
@@ -81,12 +62,13 @@ const CoffeePg = () => {
             key: index,
             value: tab.title,
           }))}
-          containerClassName="w-fit m-5 bg-brown-100 rounded-full p-2 text-black m-auto border-t-5 border-amber-950/40"
-          tabClassName="mx-2 cursor-pointer"
-          activeTabClassName="bg-brown-200 text-2xl"
-          contentClassName=""
+          containerClassName="w-fit m-5 p-2 m-auto"
+          tabClassName="mx-2 hover:bg-almond-cream-60 cursor-pointer"
+          activeTabClassName="bg-almond-cream-60 text-black text-2xl"
+          contentClassName="bg-evergreen"
+          className="bg-evergreen"
         />
-      </div>
+      </main>
     </>
   );
 };

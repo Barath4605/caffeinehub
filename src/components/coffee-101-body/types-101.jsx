@@ -15,7 +15,7 @@ const Types = () => {
       scrollTrigger: {
         trigger: typesRef.current,
         start: "top bottom",
-        end: "center top",
+        end: "50% center",
         toggleActions: "play restart restart reverse",
         scrub: true,
       },
@@ -77,11 +77,11 @@ const Types = () => {
 
   return (
     <main className="rounded-2xl">
-      <div className="my-5 p-5">
-        <h1 className="brown-200 my-2 font-bold text-2xl montserrat">
-          1. The Types of Coffee
+      <div className="my-5 p-2 h-full bg-evergreen">
+        <h1 className="opacity-100 almond-cream my-2 p-1 font-bold text-4xl montserrat text-center">
+          The Barista Populars - 101
         </h1>
-        <p className="text-md pl-5 border-l-2 border-black/30 font-semibold montserrat text-justify w-[70%]">
+        <p className="w-[60%] m-auto text-justify lato-regular text-md almond-cream">
           No matter how much you know about coffee in this section you will get
           to know all about coffee, so that the next time you go to Starbucks
           you won't get overwhelmed by your friend ordering a "No Skim Latte
@@ -90,20 +90,10 @@ const Types = () => {
           between a cold brew and a cold coffee and much more...
         </p>
       </div>
-      <cardFullView />
-
-      <div className="my-5 p-5">
-        <h1 className="brown-200 my-2 font-bold text-4xl montserrat text-center">
-          The Barista Populars - 101
-        </h1>
-      </div>
-      <div
-        id="types"
-        ref={typesRef}
-        className="m-auto scale-90 bg-gradient-to-b shadow-black shadow-2xl from-red-400/30 via-red-200/70 to-orange-800/20 rounded-2xl backdrop-blur-2xl"
-      >
+      <div id="types" className="m-auto scale-90 rounded-2xl" ref={typesRef}>
         {types.map((type) => (
           <Card
+            className="my-10 p-5 rounded-2xl"
             key={type.title}
             title={type.title}
             p1={type.p1}

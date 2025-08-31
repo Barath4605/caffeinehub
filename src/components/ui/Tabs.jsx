@@ -50,13 +50,13 @@ export const Tabs = ({
                 layoutId="clickedbutton"
                 transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                 className={cn(
-                  "absolute inset-0 bg-gray-200 dark:bg-zinc-800 rounded-full ",
+                  "absolute inset-0  rounded-full ",
                   activeTabClassName
                 )}
               />
             )}
 
-            <span className="relative block font-light montserrat text-white">
+            <span className="relative block font-light montserrat almond-cream">
               {tab.title}
             </span>
           </button>
@@ -67,7 +67,7 @@ export const Tabs = ({
         active={active}
         key={active.value}
         hovering={hovering}
-        className={cn("mt-32", contentClassName)}
+        className={cn("", contentClassName)}
       />
     </>
   );
@@ -88,11 +88,12 @@ export const FadeInDiv = ({ className, tabs, hovering }) => {
             top: hovering ? idx * -50 : 0,
             zIndex: -idx,
             opacity: idx < 3 ? 1 - idx * 0.1 : 0,
+            backgroundColor: "#146c4e",
           }}
           animate={{
             y: isActive(tab) ? [0, 40, 0] : 0,
           }}
-          className={cn("w-full h-full absolute top-0 left-0", className)}
+          className={cn("w-full absolute top-0 left-0", className)}
         >
           {tab.content}
         </motion.div>
