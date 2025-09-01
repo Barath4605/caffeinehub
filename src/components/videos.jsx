@@ -5,13 +5,15 @@ const VideoPlayer = ({ currentIndex, VideoLinks, onSelect }) => {
     <div className="absolute top-1/5 right-2 flex justify-end w-full">
       <div className="group flex flex-col items-center">
         <video
-          className="w-[330px] h-[180px] grayscale rounded object-cover border border-transparent group-hover:grayscale-0 group-hover:border-white/40 transition-all ease-in-out duration-400 cursor-pointer"
+          className="w-[120px] h-[180px] md:w-[240px] md:h-[240px] lg:w-[320px] lg:h-[160px] grayscale rounded object-cover border border-transparent group-hover:grayscale-0 group-hover:border-white/40 transition-all ease-in-out duration-400 cursor-pointer"
           src={VideoLinks[nextIndex].src}
           onClick={() => onSelect(nextIndex)}
           muted
           playsInline
         />
-        <p className="text-white/60">tap to play next &rarr;</p>
+        <p className="text-white/60 text-xs sm:text-xl">
+          tap to play next &rarr;
+        </p>
       </div>
     </div>
   );

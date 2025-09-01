@@ -2,16 +2,17 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
-
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import "../../index.css";
-import Card from "../cards";
+import Cards from "../cards";
+import TypesModal from "../types-modal";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(SplitText);
 
 const Types = () => {
   const typesRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   useGSAP(() => {
     gsap.to(typesRef.current, {
@@ -108,7 +109,7 @@ const Types = () => {
   ];
 
   return (
-    <main className="rounded-2xl">
+    <main>
       <div className="my-5 p-2 h-full bg-evergreen">
         <h1
           className="opacity-100 almond-cream my-2 p-1 font-bold text-4xl montserrat text-center"
@@ -117,7 +118,7 @@ const Types = () => {
           The Barista Populars 101
         </h1>
         <p
-          className="w-[60%] m-auto text-justify lato-regular text-md almond-cream"
+          className="w-[60%] m-auto my-10 text-justify lato-regular text-md almond-cream"
           id="headerPara"
         >
           No matter how much you know about coffee in this section you will get
@@ -128,9 +129,10 @@ const Types = () => {
           between a cold brew and a cold coffee and much more...
         </p>
       </div>
-      <div id="types" className="m-auto scale-80 rounded-2xl" ref={typesRef}>
+      <div id="types" className="m-auto scale-75 rounded-2xl" ref={typesRef}>
         {types.map((type) => (
-          <Card
+          <Cards
+            onClick={() => setIsOpen(true)}
             className="my-10 p-5 rounded-2xl"
             key={type.title}
             title={type.title}
@@ -142,6 +144,7 @@ const Types = () => {
           />
         ))}
       </div>
+      <TypesModal open={isOpen} close={() => setIsOpen(false)} />
     </main>
   );
 };

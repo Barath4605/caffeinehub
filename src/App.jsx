@@ -29,11 +29,11 @@ const App = () => {
     },
     {
       src: "https://videos.pexels.com/video-files/7301092/7301092-uhd_2560_1440_25fps.mp4",
-      tag: "Learn how to use a French press to make rich, full-bodied coffee and much more...",
+      tag: "Learn how to use a French press much more Equipments...",
     },
     {
       src: "https://videos.pexels.com/video-files/6280329/6280329-uhd_2560_1440_25fps.mp4",
-      tag: "Explore the world of coffee beans, it's origin, roasting techniques and its types.",
+      tag: "Explore the world of coffee beans, it's origin and more",
     },
   ];
 
@@ -58,7 +58,7 @@ const App = () => {
           path="/"
           element={
             <>
-              <div className="absolute montserrat flex items-center space-x-5 z-10 justify-evenly w-full bottom-10">
+              {/* <div className="absolute montserrat flex items-center space-x-5 z-10 justify-evenly w-full bottom-10">
                 <div>
                   <HomepageModal />
                 </div>
@@ -70,21 +70,18 @@ const App = () => {
                     href="https://example.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white/70 group-hover:text-white transition-all duration-500"
+                    className="text-white/70 group-hover:text-white transition-all duration-500 "
                   >
                     <FiExternalLink />
                   </a>
                 </div>
                 <div></div>
                 <div></div>
-              </div>
+              </div> */}
               <main className="relative h-screen bg-black">
                 <video
                   ref={videoRef}
-                  className="absolute top-0 left-0 w-full h-full object-cover"
-                  style={{
-                    backgroundVideo: `url(${currentVideoSrc})`,
-                  }}
+                  className="absolute object-center top-0 left-0 w-full h-full object-cover"
                   src={currentVideoSrc}
                   muted
                   autoPlay
@@ -101,24 +98,28 @@ const App = () => {
                     }, 0);
                   }}
                 />
+
+                {/* nav n header */}
                 <section className="absolute w-full">
-                  <div className="flex justify-between items-center p-3 px-5 text-white/60">
-                    <div>
-                      <h3 className="text-5xl font-bold">
+                  <div className="flex flex-col sm:flex-row justify-between items-center p-3 text-white/60">
+                    <div className="text-center sm:text-left mb-2 sm:mb-0">
+                      <h3 className="text-3xl sm:text-7xl font-bold">
                         caffeinehub
-                        <span className="text-sm font-semibold">.com</span>{" "}
+                        <span className="text-sm sm:text-lg font-semibold">
+                          .com
+                        </span>
                       </h3>
-                      <h2 className="text-xl font-light">
+                      <h2 className="text-lg lg:text-2xl sm:text-xl font-light">
                         For Caffeinated Heads
                       </h2>
                     </div>
                     <div>
-                      <ul className="flex flex-wrap justify-center gap-5 p-2 text-white">
+                      <ul className="flex flex-wrap justify-center gap-3 sm:gap-5 p-2 text-white">
                         {links.map((link) => (
                           <li key={link.label} className="text-white">
                             <Link
                               to={link.href}
-                              className="hover:border-white/60 border-b border-transparent p-1 transition-all ease-in-out duration-500"
+                              className="hover:border-white/60 border-b border-transparent p-1 transition-all ease-in-out duration-500 text-sm md:text-xl underline lg:no-underline sm:text-md"
                             >
                               {link.label}
                             </Link>
@@ -128,6 +129,27 @@ const App = () => {
                     </div>
                   </div>
                 </section>
+
+                {/* bottom info */}
+                <div className="absolute montserrat flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-5 z-10 justify-around w-full bottom-4 sm:bottom-10 px-4">
+                  <HomepageModal />
+                  <div className="group flex items-center h-[30px] space-x-2 cursor-pointer p-1 text-center sm:text-left">
+                    <span className="font-semibold text-white/70 group-hover:text-white transition-all ease-in-out duration-500 text-xs lg:text-xl md:text-lg sm:text-base">
+                      {currentVideoTag}
+                    </span>
+                    <a
+                      href="https://example.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white/70 text-sm sm:text-lg group-hover:text-white transition-all duration-500"
+                    >
+                      <FiExternalLink />
+                    </a>
+                  </div>
+                  <div> </div>
+                  <div> </div>
+                </div>
+
                 <VideoPlayer
                   currentIndex={VideoLinks.findIndex(
                     (v) => v.src === currentVideoSrc
