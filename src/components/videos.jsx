@@ -11,7 +11,7 @@ const VideoPlayer = ({ currentIndex, VideoLinks, onSelect }) => {
           muted
           playsInline
         />
-        <p className="text-white/60 text-xs sm:text-xl">
+        <p className="text-white/60 text-xs sm:text-base">
           tap to play next &rarr;
         </p>
       </div>

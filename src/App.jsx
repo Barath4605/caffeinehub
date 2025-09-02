@@ -103,13 +103,13 @@ const App = () => {
                 <section className="absolute w-full">
                   <div className="flex flex-col sm:flex-row justify-between items-center p-3 text-white/60">
                     <div className="text-center sm:text-left mb-2 sm:mb-0">
-                      <h3 className="text-3xl sm:text-7xl font-bold">
+                      <h3 className="text-3xl sm:text-5xl font-bold">
                         caffeinehub
-                        <span className="text-sm sm:text-lg font-semibold">
+                        <span className="text-sm sm:text-base font-semibold">
                           .com
                         </span>
                       </h3>
-                      <h2 className="text-lg lg:text-2xl sm:text-xl font-light">
+                      <h2 className="text-lg lg:text-xl sm:text-xl font-light">
                         For Caffeinated Heads
                       </h2>
                     </div>
@@ -119,7 +119,7 @@ const App = () => {
                           <li key={link.label} className="text-white">
                             <Link
                               to={link.href}
-                              className="hover:border-white/60 border-b border-transparent p-1 transition-all ease-in-out duration-500 text-sm md:text-xl underline lg:no-underline sm:text-md"
+                              className="hover:border-white/60 border-b border-transparent p-1 transition-all ease-in-out duration-500 text-sm underline lg:no-underline sm:text-base"
                             >
                               {link.label}
                             </Link>
@@ -133,15 +133,15 @@ const App = () => {
                 {/* bottom info */}
                 <div className="absolute montserrat flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-5 z-10 justify-around w-full bottom-4 sm:bottom-10 px-4">
                   <HomepageModal />
-                  <div className="group flex items-center h-[30px] space-x-2 cursor-pointer p-1 text-center sm:text-left">
-                    <span className="font-semibold text-white/70 group-hover:text-white transition-all ease-in-out duration-500 text-xs lg:text-xl md:text-lg sm:text-base">
+                  <div className="group flex justify-center items-center h-[30px] lg:w-[500px] space-x-2 cursor-pointer p-1 text-center sm:text-left">
+                    <span className="font-semibold text-white/70 m-auto group-hover:text-white transition-all ease-in-out duration-500 text-xs md:text-md sm:text-base">
                       {currentVideoTag}
                     </span>
                     <a
                       href="https://example.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white/70 text-sm sm:text-lg group-hover:text-white transition-all duration-500"
+                      className="text-white/70 text-sm sm:text-base group-hover:text-white transition-all duration-500"
                     >
                       <FiExternalLink />
                     </a>

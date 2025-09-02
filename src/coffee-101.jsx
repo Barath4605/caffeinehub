@@ -63,8 +63,8 @@ const CoffeePg = () => {
             value: tab.title,
           }))}
           containerClassName="w-fit m-5 p-2 m-auto"
-          tabClassName="mx-2 hover:bg-almond-cream-60 cursor-pointer"
-          activeTabClassName="bg-almond-cream-60 text-black text-2xl"
+          tabClassName="mx-2 cursor-pointer"
+          activeTabClassName="text-2xl"
           contentClassName="bg-evergreen"
           className="bg-evergreen"
         />

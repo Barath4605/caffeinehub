@@ -2,17 +2,15 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import "../../index.css";
 import Cards from "../cards";
-import TypesModal from "../types-modal";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(SplitText);
 
 const Types = () => {
   const typesRef = useRef(null);
-  const [isOpen, setIsOpen] = useState(false);
 
   useGSAP(() => {
     gsap.to(typesRef.current, {
@@ -63,6 +61,22 @@ const Types = () => {
     });
   });
 
+  useGSAP(() => {
+    const split = SplitText.create("#mobile-scrollDown", {
+      type: "lines",
+    });
+
+    gsap.from(split.lines, {
+      autoAlpha: 0,
+      delay: 4,
+      y: 10,
+      stagger: {
+        amount: 0.2,
+        from: "start",
+      },
+    });
+  });
+
   const types = [
     {
       title: "Espresso",
@@ -109,43 +123,49 @@ const Types = () => {
   ];
 
   return (
-    <main>
-      <div className="my-5 p-2 h-full bg-evergreen">
-        <h1
-          className="opacity-100 almond-cream my-2 p-1 font-bold text-4xl montserrat text-center"
-          id="header"
-        >
-          The Barista Populars 101
-        </h1>
-        <p
-          className="w-[60%] m-auto my-10 text-justify lato-regular text-md almond-cream"
-          id="headerPara"
-        >
-          No matter how much you know about coffee in this section you will get
-          to know all about coffee, so that the next time you go to Starbucks
-          you won't get overwhelmed by your friend ordering a "No Skim Latte
-          with an extra shot" We will cover all the different types of coffee
-          from a cappuccino to a gesha, show they are made, the difference
-          between a cold brew and a cold coffee and much more...
-        </p>
-      </div>
-      <div id="types" className="m-auto scale-75 rounded-2xl" ref={typesRef}>
-        {types.map((type) => (
-          <Cards
-            onClick={() => setIsOpen(true)}
-            className="my-10 p-5 rounded-2xl"
-            key={type.title}
-            title={type.title}
-            p1={type.p1}
-            p2={type.p2}
-            p3={type.p3}
-            src={type.src}
-            alt={type.alt}
-          />
-        ))}
-      </div>
-      <TypesModal open={isOpen} close={() => setIsOpen(false)} />
-    </main>
+    <>
+      <main>
+        <div className="my-5 p-2 h-full bg-evergreen">
+          <h1
+            className="opacity-100 almond-cream my-2 p-1 font-bold text-4xl montserrat text-center"
+            id="header"
+          >
+            The Barista Populars 101
+          </h1>
+          <p
+            className="lg:w-[60%] lg:text-justify m-auto my-10 lato-regular text-md almond-cream"
+            id="headerPara"
+          >
+            No matter how much you know about coffee in this section you get to
+            know all about coffee, the next time you go to Starbucks you won't
+            get overwhelmed by your friend ordering a "No Skim Latte with an
+            extra shot" We will cover all the different types of coffee from a
+            cappuccino to a gesha, show they are made, the difference between a
+            cold brew and a cold coffee and much more...
+          </p>
+
+          {window.innerWidth < 1024 && (
+            <div id="mobile-scrollDown">
+              <h3 className="text-center mt-5">Scroll to Explore ↓</h3>
+            </div>
+          )}
+        </div>
+        <div id="types" className="m-auto scale-75 rounded-2xl" ref={typesRef}>
+          {types.map((type) => (
+            <Cards
+              className="my-10 p-5 rounded-2xl"
+              key={type.title}
+              title={type.title}
+              p1={type.p1}
+              p2={type.p2}
+              p3={type.p3}
+              src={type.src}
+              alt={type.alt}
+            />
+          ))}
+        </div>
+      </main>
+    </>
   );
 };
 

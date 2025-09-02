@@ -42,13 +42,13 @@ const HomepageModal = () => {
       <div className="relative">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="px-5 p-2 scale-90 md:scale-110 lg:scale-130 text-black bg-white font-semibold rounded cursor-pointer"
+          className="px-5 p-2 scale-90 md:scale-110  text-black bg-white font-semibold rounded cursor-pointer"
         >
           What to Expect ?
         </button>
       </div>
 
-      <div className="w-[90%] fixed bottom-[140px] lg:bottom-[120px] lg:w-[30%] md:bottom-[130px] md:w-[40%] lg:left-[120px] md:left-[20px] sm:bottom-[100px] sm:left-[150px] sm:w-[30%] transition-all ease-initial duration-500">
+      <div className="w-[90%] fixed bottom-[140px] lg:bottom-[120px] lg:w-[30%] md:bottom-[130px] md:w-[40%] lg:left-[100px] sm:bottom-[100px] sm:left-[150px] sm:w-[30%] transition-all ease-initial duration-500">
         {isOpen && (
           <div className="flex flex-col bg-white p-4 rounded ">
             <div className="flex text-gray-900">
@@ -57,11 +57,11 @@ const HomepageModal = () => {
                 className="cursor-pointer transition-all duration-500 transform animate-fadeIn"
                 key={Index}
               >
-                <h3 className="font-bold text-lg lg:text-3xl lg:mb-3">
+                <h3 className="font-bold text-lg lg:text-xl lg:mb-3">
                   {HeroMessage[Index].title}
                 </h3>
                 <hr className="w-1/4 my-1" />
-                <p className="text-gray-800 text-sm md:text-base lg:text-xl lg:mt-4">
+                <p className="text-gray-800 text-sm md:text-base lg:text-lg lg:mt-4">
                   {HeroMessage[Index].content}
                 </p>
               </div>
@@ -71,14 +71,14 @@ const HomepageModal = () => {
                     setIsOpen(false);
                     setIndex(0);
                   }}
-                  className="text-black rounded-full h-fit cursor-pointer p-1 transition-all ease-in-out duration-800 lg:text-xl"
+                  className="text-black rounded-full h-fit cursor-pointer p-1 transition-all ease-in-out duration-800 lg:text-lg"
                 >
                   X
                 </button>
               </div>
             </div>
 
-            <div className="mt-4 justify-center md:justify-start flex space-x-1 lg:text-xl">
+            <div className="mt-4 justify-center md:justify-start flex space-x-1 lg:text-lg">
               {HeroMessage.map((message, index) => {
                 return (
                   <span
