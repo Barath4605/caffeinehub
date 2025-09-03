@@ -3,6 +3,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import { useRef } from "react";
+import cappuccino from "../../assets/cappuccino-top.png";
+import espresso from "../../assets/espresso-top.png";
+import latte from "../../assets/latte-top.png";
 import "../../index.css";
 import Cards from "../cards";
 
@@ -84,8 +87,10 @@ const Types = () => {
       p2: "Espresso is bold, rich, and intense, packing a punch in just 25–30 ml. It has a thick, velvety texture with a slightly bitter, smoky flavor. The crema adds a smooth, aromatic layer, making each sip feel dense and powerful despite the small volume.",
       p3: "Espresso is the base for most coffee drinks—lattes, cappuccinos, macchiatos, mochas, and Americanos all start here. It can also be enjoyed straight as a single or double shot for a quick caffeine kick. Variations like ristretto (shorter, stronger pull) or lungo (longer, milder pull) give it some versatility.",
 
-      src: "https://images.pexels.com/photos/4736557/pexels-photo-4736557.jpeg",
+      src: espresso,
       alt: "Image of Espresso",
+      modalContent:
+        "Espresso is a concentrated form of coffee prepared by forcing hot water through finely ground coffee beans under high pressure. It produces a small but strong shot with a rich flavor and crema on top. Often regarded as the base of many coffee beverages, espresso embodies the pure essence of coffee.",
     },
     {
       title: "Latte",
@@ -93,16 +98,21 @@ const Types = () => {
       p2: "Lattes are mild and creamy, with the espresso flavor softened by the milk. The light foam adds a silky finish, making it gentle on the palate and perfect for those who prefer a less intense coffee experience.",
       p3: "Lattes are commonly enjoyed as a comforting morning drink or paired with breakfast. They can be flavored with syrups like vanilla or caramel, and they also serve as the base for latte art, making them visually appealing as well as tasty.",
 
-      src: "https://images.pexels.com/photos/29162923/pexels-photo-29162923.jpeg",
+      src: latte,
       alt: "Image of Latte",
+      modalContent:
+        "A latte is a coffee drink made with one or more shots of espresso combined with a generous amount of steamed milk. It is topped with a thin layer of milk foam, resulting in a smooth and creamy texture. The flavor is mild and balanced, making it approachable for those who prefer a less intense coffee experience.",
     },
     {
       title: "Cappuccino",
       p1: "Cappuccino is made with equal parts espresso, steamed milk, and thick milk foam. You need an espresso machine, milk, and finely ground coffee. The foam is denser than a latte’s, giving the drink a lighter, airy texture while keeping the espresso punch intact.",
       p2: "Cappuccinos are bold yet balanced, with the espresso’s strength softened by the milk and lifted by the airy foam. Each sip is creamy, frothy, and slightly stronger than a latte, offering a satisfying coffee hit with texture.",
       p3: "Cappuccinos are often enjoyed in the morning as a classic breakfast drink. They are also a favorite in cafés for their visual appeal and foam art, and they can be served with a sprinkle of cocoa or cinnamon for extra flavor.",
-      src: "https://www.mashed.com/img/gallery/upgrade-your-at-home-latte-with-a-dusting-of-chocolate-powder/l-intro-1712003442.jpg",
+
+      src: cappuccino,
       alt: "Image of Cappuccino",
+      modalContent:
+        "A cappuccino consists of equal parts espresso, steamed milk, and milk foam. The rich espresso provides depth, while the milk and foam create a harmonious balance of strength and creaminess. The foamed layer also serves to insulate the drink, maintaining its warmth while offering a distinctive velvety mouthfeel.",
     },
     {
       title: "Americano",
@@ -124,7 +134,7 @@ const Types = () => {
 
   return (
     <>
-      <main>
+      <main className="pt-1 lg:border-t lg:border-amber-50/80">
         <div className="my-5 p-2 h-full bg-evergreen">
           <h1
             className="opacity-100 almond-cream my-2 p-1 font-bold text-4xl montserrat text-center"
@@ -159,8 +169,9 @@ const Types = () => {
               p1={type.p1}
               p2={type.p2}
               p3={type.p3}
-              src={type.src}
+              imgSrc={type.src}
               alt={type.alt}
+              content={type.modalContent}
             />
           ))}
         </div>

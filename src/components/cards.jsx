@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../index.css";
 import TypesModal from "./types-101-modal/types-101-modal";
 
-const Cards = ({ title, p1, p2, p3, src, alt, desc }) => {
+const Cards = ({ title, p1, p2, p3, imgSrc, alt, content }) => {
   const paraClass =
     "lg:w-[60%] lg:text-justify lato-regular text-md lg:text-lg lg:pl-2 lg:border-l-1 lg:border-green-800/70 rounded-x-xl";
 
@@ -22,7 +22,15 @@ const Cards = ({ title, p1, p2, p3, src, alt, desc }) => {
             <p className={paraClass}>{p1}</p>
             <p className={paraClass}>{p2}</p>
             <p className={paraClass}>{p3}</p>
-            {isOpen && <TypesModal onClose={() => setIsOpen(false)} />}
+            {isOpen && (
+              <TypesModal
+                imgSrc={imgSrc}
+                title={title}
+                content={content}
+                alt={alt}
+                onClose={() => setIsOpen(false)}
+              />
+            )}
           </div>
         </div>
       </section>

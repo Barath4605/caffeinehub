@@ -154,8 +154,16 @@
   color: #146c4e;
 }
 
+.evergreen-dark {
+  color: #093828;
+}
+
 .bg-evergreen {
   background-color: #146c4e;
+}
+
+.bg-evergreen-dark {
+  background-color: #093828;
 }
 
 .bg-almond-cream-90 {

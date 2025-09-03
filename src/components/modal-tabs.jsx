@@ -26,7 +26,7 @@ const ModalTabs = () => {
     <section className="w-fit overflow-scroll border-b border-green-700/40">
       {buttons.map((btn) => {
         return (
-          <button className="p-1 mx-2 montserrat border-b border-transparent hover:border-green-700 transition-all ease-in-out duration-300">
+          <button className="p-1 montserrat border-b border-transparent hover:border-green-700 transition-all ease-in-out duration-300">
             {btn.btnName}
           </button>
         );
