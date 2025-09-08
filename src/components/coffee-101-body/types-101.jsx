@@ -91,6 +91,24 @@ const Types = () => {
       alt: "Image of Espresso",
       modalContent:
         "Espresso is a concentrated form of coffee prepared by forcing hot water through finely ground coffee beans under high pressure. It produces a small but strong shot with a rich flavor and crema on top. Often regarded as the base of many coffee beverages, espresso embodies the pure essence of coffee.",
+
+      prereqs: [
+        "Freshly roasted medium-dark beans (18–20g for double shot)",
+        "Filtered water (90–96°C, never straight tap)",
+        "Precision burr grinder (fine, consistent grind)",
+        "Proper dose-to-yield ratio knowledge (1:2 ideal)",
+        "Understanding of tamping technique (even pressure)",
+      ],
+      tools: [
+        "Espresso machine with stable 9-bar pressure",
+        "Portafilter with basket",
+        "Tamper (fits basket snugly)",
+        "Digital scale (for accurate dosing & yield)",
+        "Shot glass or espresso cup",
+        "Milk frother/steam wand (if making cappuccino/latte)",
+      ],
+      endline:
+        "Master these and your espresso won’t just wake you up—it’ll slap you awake with finesse.",
     },
     {
       title: "Latte",
@@ -102,6 +120,25 @@ const Types = () => {
       alt: "Image of Latte",
       modalContent:
         "A latte is a coffee drink made with one or more shots of espresso combined with a generous amount of steamed milk. It is topped with a thin layer of milk foam, resulting in a smooth and creamy texture. The flavor is mild and balanced, making it approachable for those who prefer a less intense coffee experience.",
+
+      prereqs: [
+        "Fresh espresso beans (18–20g for double shot)",
+        "Filtered water (90–96°C)",
+        "Cold whole milk (higher volume than cappuccino)",
+        "Fine espresso grind",
+        "Steaming technique (silky microfoam, minimal bubbles)",
+      ],
+      tools: [
+        "Espresso machine with steam wand",
+        "Burr grinder",
+        "Portafilter with basket",
+        "Tamper (flat, consistent pressure)",
+        "Large milk pitcher (20oz, latte art friendly)",
+        "Latte cup or glass (240–300ml)",
+        "Digital scale",
+      ],
+      endline:
+        "A latte is espresso mellowed by warm milk—creamy, smooth, and the playground for latte art flexes.",
     },
     {
       title: "Cappuccino",
@@ -113,6 +150,25 @@ const Types = () => {
       alt: "Image of Cappuccino",
       modalContent:
         "A cappuccino consists of equal parts espresso, steamed milk, and milk foam. The rich espresso provides depth, while the milk and foam create a harmonious balance of strength and creaminess. The foamed layer also serves to insulate the drink, maintaining its warmth while offering a distinctive velvety mouthfeel.",
+
+      prereqs: [
+        "Fresh espresso beans (18–20g for double shot)",
+        "Filtered water (90–96°C)",
+        "Whole milk (cold, for frothing)",
+        "Fine grind size consistency",
+        "Knowledge of milk stretching (microfoam creation)",
+      ],
+      tools: [
+        "Espresso machine with reliable steam wand",
+        "Burr grinder",
+        "Portafilter with basket",
+        "Tamper (fits snugly)",
+        "Milk pitcher (12oz stainless steel)",
+        "Cappuccino cup (150–180ml)",
+        "Digital scale",
+      ],
+      endline:
+        "A cappuccino is all about balance—1/3 espresso, 1/3 steamed milk, 1/3 foam. Nail the foam or don’t bother.",
     },
     {
       title: "Americano",
@@ -134,7 +190,7 @@ const Types = () => {
 
   return (
     <>
-      <main className="pt-1 lg:border-t lg:border-amber-50/80">
+      <main className="pt-1">
         <div className="my-5 p-2 h-full bg-evergreen">
           <h1
             className="opacity-100 almond-cream my-2 p-1 font-bold text-4xl montserrat text-center"
@@ -172,6 +228,9 @@ const Types = () => {
               imgSrc={type.src}
               alt={type.alt}
               content={type.modalContent}
+              prereqs={type.prereqs}
+              tools={type.tools}
+              endline={type.endline}
             />
           ))}
         </div>

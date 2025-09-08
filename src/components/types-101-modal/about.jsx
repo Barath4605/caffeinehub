@@ -1,49 +1,62 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { SplitText } from "gsap/SplitText";
+import { useRef } from "react";
 import "../../index.css";
+import { useCoffee } from "./coffeeContext.js";
 
-const About = ({ imgSrc, title, content, alt }) => {
-  useGSAP(() => {
-    gsap.fromTo(
-      "#imageSrc",
-      {
-        rotate: 0,
-        scale: 0.2,
-        y: 50,
-        opacity: 0,
-      },
-      {
-        rotate: -45,
-        delay: 0.5,
-        y: -20, // float upward
-        scale: 1,
-        opacity: 1,
-        duration: 1.2,
-        ease: "back.out(1.7)",
-      }
-    );
-  });
+gsap.registerPlugin(SplitText);
+
+const About = () => {
+  const { imgSrc, title, content, alt } = useCoffee();
+  const imageRef = useRef(null);
+  const contentRef = useRef(null);
 
   useGSAP(() => {
-    gsap.fromTo(
-      "#content",
-      {
-        y: 180,
-        opacity: 0,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.4,
-        ease: "linear",
-      }
-    );
+    const ctx = gsap.context(() => {
+      const isMobile = window.innerWidth < 768;
+
+      gsap.fromTo(
+        imageRef.current,
+        {
+          rotate: 0,
+          scale: 0,
+          y: 50,
+          opacity: 0,
+        },
+        {
+          rotate: -740,
+          delay: 0.8,
+          y: -20,
+          scale: isMobile ? 1.2 : 1.4,
+          opacity: 1,
+          duration: 1.2,
+          ease: "back.out(1.7)",
+        }
+      );
+
+      gsap.fromTo(
+        contentRef.current,
+        {
+          y: isMobile ? 180 : 0,
+          opacity: isMobile ? 0 : 0.7,
+        },
+        {
+          y: isMobile ? 10 : 0,
+          opacity: 1,
+          duration: isMobile ? 1 : 0.3,
+          ease: "linear",
+        }
+      );
+    });
+
+    return () => ctx.revert();
   });
 
   return (
-    <section className="flex flex-col h-full ">
+    <section className="flex flex-col h-full">
       <img
-        id="imageSrc"
+        ref={imageRef}
         className="relative z-5 w-[350px] h-[350px] lg:w-[320px] lg:h-[320px] m-auto top-30 -rotate-45 shrink-0"
         src={imgSrc}
         alt={alt}
@@ -51,13 +64,13 @@ const About = ({ imgSrc, title, content, alt }) => {
       />
 
       <div
-        id="content"
-        className="relative z-10 mt-10 bg-almond-cream rounded-t-4xl flex flex-col flex-1 overflow-hidden shadow-2xl shadow-black"
+        ref={contentRef}
+        className="relative lg:opacity-0 z-10 mt-10 bg-almond-cream rounded-t-4xl flex flex-col lg:flex-row lg:items-center lg:justify-center flex-1 overflow-hidden shadow-2xl shadow-black"
       >
-        <h1 className="text-6xl p-2 font-bold montserrat almond-cream evergreen text-center shrink-0">
+        <h1 className="vibes text-8xl lg:text-[108px] lg:pr-4 p-2 almond-cream evergreen text-center shrink-0 lg:w-[40%]">
           {title}
         </h1>
-        <p className="flex-1 overflow-y-auto p-4 px-4 lg:w-[80%] lg:m-auto montserrat font-semibold evergreen text-center">
+        <p className="flex-1 overflow-y-auto px-4 lato font-semibold evergreen text-center lg:text-start lg:border-l lg:border-green-700">
           {content}
         </p>
       </div>

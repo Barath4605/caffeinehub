@@ -2,7 +2,18 @@ import { useState } from "react";
 import "../index.css";
 import TypesModal from "./types-101-modal/types-101-modal";
 
-const Cards = ({ title, p1, p2, p3, imgSrc, alt, content }) => {
+const Cards = ({
+  title,
+  p1,
+  p2,
+  p3,
+  imgSrc,
+  alt,
+  content,
+  prereqs,
+  tools,
+  endline,
+}) => {
   const paraClass =
     "lg:w-[60%] lg:text-justify lato-regular text-md lg:text-lg lg:pl-2 lg:border-l-1 lg:border-green-800/70 rounded-x-xl";
 
@@ -24,10 +35,15 @@ const Cards = ({ title, p1, p2, p3, imgSrc, alt, content }) => {
             <p className={paraClass}>{p3}</p>
             {isOpen && (
               <TypesModal
-                imgSrc={imgSrc}
-                title={title}
-                content={content}
-                alt={alt}
+                coffee={{
+                  imgSrc,
+                  title,
+                  content,
+                  alt,
+                  prereqs,
+                  tools,
+                  endline,
+                }}
                 onClose={() => setIsOpen(false)}
               />
             )}
