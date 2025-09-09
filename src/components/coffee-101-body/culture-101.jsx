@@ -1,9 +1,10 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useRef, useState } from "react";
+import { lazy, Suspense, useRef } from "react";
 import "../../index.css";
-import Worldmap from "../ui/Globe";
-import Timeline from "../ui/Timeline";
+
+const Worldmap = lazy(() => import("../ui/Globe"));
+const Timeline = lazy(() => import("../ui/Timeline"));
 
 const Culture = () => {
   const globeRef = useRef(null);
@@ -22,7 +23,6 @@ const Culture = () => {
     );
   });
 
-  const [hoveredPoint, setHoveredPoint] = useState(null);
   const isMobile = window.innerWidth < 1024;
   const colors = ["#6f4e37", "#c19a6b", "#ffcc99"]; // coffee tones
 
@@ -341,29 +341,41 @@ const Culture = () => {
         )}
       </div>
       <div
-        className="m-auto lg:w-fit p-5 backdrop-blur-3xl transition-all ease-in-out duration-200 hover:shadow-2xl hover:shadow-black "
+        className="m-auto lg:w-fit p-5 backdrop-blur-3xl transition-all ease-out duration-200 hover:shadow-2xl hover:shadow-black "
         ref={globeRef}
       >
-        <h1 className="lg:text-5xl text-2xl text-center lg:text-start font-semibold almond-cream montserrat ">
+        <h1 className="lg:text-5xl text-2xl text-center font-semibold almond-cream montserrat ">
           Global View
         </h1>
         <div
           className={`h-[400px] w-[400px] lg:h-[700px] lg:w-[700px] cursor-crosshair`}
         >
-          <Worldmap
-            globeConfig={globeConfig}
-            pointLight="blue"
-            data={coffeeLocations}
-            arcLength={0.35}
-            arcDashGap={0.7}
-            arcDashAnimateTime={4000}
-            arcAltitude={0.3}
-            arcStroke={1}
-          />
+          <Suspense
+            fallback={
+              <div className="text-center text-white">Loading Globe...</div>
+            }
+          >
+            <Worldmap
+              globeConfig={globeConfig}
+              pointLight="blue"
+              data={coffeeLocations}
+              arcLength={0.35}
+              arcDashGap={0.7}
+              arcDashAnimateTime={4000}
+              arcAltitude={0.3}
+              arcStroke={1}
+            />
+          </Suspense>
         </div>
       </div>
       <div className="text-zinc-200">
-        <Timeline data={timelineData} />
+        <Suspense
+          fallback={
+            <div className="text-center text-white">Loading Timeline...</div>
+          }
+        >
+          <Timeline data={timelineData} />
+        </Suspense>
       </div>
     </main>
   );

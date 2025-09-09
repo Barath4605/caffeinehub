@@ -77,30 +77,27 @@ export const Tabs = ({
 };
 
 export const FadeInDiv = ({ className, tabs, hovering }) => {
-  const isActive = (tab) => {
-    return tab.value === tabs[0].value;
-  };
+  // Only render the first (active) tab's content
+  const tab = tabs[0];
   return (
     <div className="relative w-full h-full">
-      {tabs.map((tab, idx) => (
-        <motion.div
-          key={tab.value}
-          layoutId={tab.value}
-          style={{
-            scale: 1 - idx * 0.1,
-            top: hovering ? idx * -50 : 0,
-            zIndex: -idx,
-            opacity: idx < 3 ? 1 - idx * 0.1 : 0,
-            backgroundColor: "#146c4e",
-          }}
-          animate={{
-            y: isActive(tab) ? [0, 40, 0] : 0,
-          }}
-          className={cn("w-full absolute top-0 left-0", className)}
-        >
-          {tab.content}
-        </motion.div>
-      ))}
+      <motion.div
+        key={tab.value}
+        layoutId={tab.value}
+        style={{
+          scale: 1,
+          top: 0,
+          zIndex: 0,
+          opacity: 1,
+          backgroundColor: "#146c4e",
+        }}
+        animate={{
+          y: [0, 40, 0],
+        }}
+        className={cn("w-full absolute top-0 left-0", className)}
+      >
+        {tab.content}
+      </motion.div>
     </div>
   );
 };
