@@ -202,3 +202,19 @@
 .border-evergreen {
   border-color: #146c4e;
 }
+
+.coffee {
+  color: #493628;
+}
+
+.bg-coffee {
+  background-color: #493628;
+}
+
+.vanilla {
+  color: #d6c0b3;
+}
+
+.bg-vanilla {
+  background-color: #d6c0b3;
+}
