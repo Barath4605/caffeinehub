@@ -83,108 +83,168 @@ const Types = () => {
   const types = [
     {
       title: "Espresso",
-      p1: "Espresso is brewed by forcing hot water (90–96°C) through finely ground coffee under high pressure (about 9 bars). You need an espresso machine, fresh water, and finely ground beans. The machine’s portafilter holds the coffee, and the pump pushes water through to extract a concentrated shot with a layer of crema on top.",
-      p2: "Espresso is bold, rich, and intense, packing a punch in just 25–30 ml. It has a thick, velvety texture with a slightly bitter, smoky flavor. The crema adds a smooth, aromatic layer, making each sip feel dense and powerful despite the small volume.",
-      p3: "Espresso is the base for most coffee drinks—lattes, cappuccinos, macchiatos, mochas, and Americanos all start here. It can also be enjoyed straight as a single or double shot for a quick caffeine kick. Variations like ristretto (shorter, stronger pull) or lungo (longer, milder pull) give it some versatility.",
-
+      p1: "Espresso is made by forcing hot water (90–96°C) through finely ground coffee under high pressure (around 9 bars). You need an espresso machine, fresh water, and finely ground beans. The machine’s portafilter holds the coffee, and the pump pushes water through to pull a concentrated shot.",
+      p2: "Espresso is small but mighty—25–30 ml of bold, rich, and intense coffee with a velvety texture. It tastes strong, slightly bitter, and smoky, topped with a golden layer of crema that adds smoothness.",
+      p3: "Espresso is the foundation of most café drinks—lattes, cappuccinos, macchiatos, mochas, and Americanos. It can be enjoyed straight (single or double shot) or varied into ristretto (shorter, stronger) or lungo (longer, lighter).",
       src: espresso,
       alt: "Image of Espresso",
       modalContent:
-        "Espresso is a concentrated form of coffee prepared by forcing hot water through finely ground coffee beans under high pressure. It produces a small but strong shot with a rich flavor and crema on top. Often regarded as the base of many coffee beverages, espresso embodies the pure essence of coffee.",
-
+        "Espresso is a concentrated coffee made by forcing hot water through finely ground beans under high pressure. It’s intense, flavorful, and the base for most coffee drinks.",
       prereqs: [
-        "Freshly roasted medium-dark beans (18–20g for double shot)",
-        "Filtered water (90–96°C, never straight tap)",
-        "Precision burr grinder (fine, consistent grind)",
-        "Proper dose-to-yield ratio knowledge (1:2 ideal)",
-        "Understanding of tamping technique (even pressure)",
+        "Freshly roasted beans (18–20g for double shot)",
+        "Filtered water (90–96°C)",
+        "Fine, consistent grind (burr grinder)",
+        "Understanding of tamping (even pressure)",
+        "Basic knowledge of brew ratios (1:2 is standard)",
       ],
       tools: [
-        "Espresso machine with stable 9-bar pressure",
-        "Portafilter with basket",
-        "Tamper (fits basket snugly)",
-        "Digital scale (for accurate dosing & yield)",
-        "Shot glass or espresso cup",
-        "Milk frother/steam wand (if making cappuccino/latte)",
+        "Espresso machine (9-bar pressure)",
+        "Portafilter + basket",
+        "Tamper (snug fit)",
+        "Digital scale",
+        "Espresso cup or shot glass",
+        "Milk frother/steam wand (if making milk drinks)",
       ],
+      recipe1: "Grind 18–20g of beans to a fine consistency (like table salt).",
+      recipe2:
+        "Fill the portafilter basket with grounds, distribute evenly, and tamp down firmly with 30 pounds of pressure.",
+      recipe3:
+        "Lock the portafilter into the espresso machine and start extraction. Aim for 25–30ml of espresso in 25–30 seconds.",
+      recipe4:
+        "Serve in a preheated cup immediately. Drink as is, or add sugar for sweetness.",
       endline:
-        "Master these and your espresso won’t just wake you up—it’ll slap you awake with finesse.",
+        "Espresso isn’t gentle—it’s coffee’s knockout punch in a tiny cup.",
     },
     {
       title: "Latte",
-      p1: "A latte is made by combining one or two shots of espresso with a large amount of steamed milk and a thin layer of milk foam on top. You need an espresso machine, fresh milk, and finely ground coffee. The steamed milk softens the espresso’s intensity and creates a creamy, smooth texture.",
-      p2: "Lattes are mild and creamy, with the espresso flavor softened by the milk. The light foam adds a silky finish, making it gentle on the palate and perfect for those who prefer a less intense coffee experience.",
-      p3: "Lattes are commonly enjoyed as a comforting morning drink or paired with breakfast. They can be flavored with syrups like vanilla or caramel, and they also serve as the base for latte art, making them visually appealing as well as tasty.",
-
+      p1: "A latte mixes one or two shots of espresso with lots of steamed milk and a thin layer of foam. The milk softens the espresso’s strength, creating a smooth and creamy drink.",
+      p2: "Lattes are mild and silky, perfect for people who want coffee flavor without too much bite. The foam gives it a soft finish, making it approachable and comforting.",
+      p3: "Lattes are common breakfast drinks. They can be flavored with syrups like vanilla or caramel, and they’re the canvas for latte art, making them as pretty as they are tasty.",
       src: latte,
       alt: "Image of Latte",
       modalContent:
-        "A latte is a coffee drink made with one or more shots of espresso combined with a generous amount of steamed milk. It is topped with a thin layer of milk foam, resulting in a smooth and creamy texture. The flavor is mild and balanced, making it approachable for those who prefer a less intense coffee experience.",
-
+        "A latte is espresso blended with a generous amount of steamed milk and topped with light foam. It’s smooth, mild, and often used for latte art.",
       prereqs: [
-        "Fresh espresso beans (18–20g for double shot)",
+        "Espresso beans (18–20g for double shot)",
         "Filtered water (90–96°C)",
-        "Cold whole milk (higher volume than cappuccino)",
+        "Cold whole milk",
         "Fine espresso grind",
-        "Steaming technique (silky microfoam, minimal bubbles)",
+        "Basic milk steaming technique (silky microfoam)",
       ],
       tools: [
         "Espresso machine with steam wand",
         "Burr grinder",
-        "Portafilter with basket",
-        "Tamper (flat, consistent pressure)",
-        "Large milk pitcher (20oz, latte art friendly)",
+        "Portafilter + basket",
+        "Tamper",
+        "Milk pitcher (20oz)",
         "Latte cup or glass (240–300ml)",
         "Digital scale",
       ],
+      recipe1:
+        "Pull a fresh double shot of espresso (60ml) into a large latte cup.",
+      recipe2:
+        "Fill a pitcher with 200–250ml of cold milk. Submerge the steam wand tip just below the surface and steam until milk reaches 65°C.",
+      recipe3:
+        "Stretch the milk slightly (introduce air at the start), then swirl to create silky microfoam.",
+      recipe4:
+        "Pour milk slowly into the espresso, holding back foam with a spoon, then finish with a thin foam layer. Add vanilla or caramel syrup if you want.",
       endline:
-        "A latte is espresso mellowed by warm milk—creamy, smooth, and the playground for latte art flexes.",
+        "Latte = espresso in a cozy blanket of milk, smooth and Instagram-ready.",
     },
     {
       title: "Cappuccino",
-      p1: "Cappuccino is made with equal parts espresso, steamed milk, and thick milk foam. You need an espresso machine, milk, and finely ground coffee. The foam is denser than a latte’s, giving the drink a lighter, airy texture while keeping the espresso punch intact.",
-      p2: "Cappuccinos are bold yet balanced, with the espresso’s strength softened by the milk and lifted by the airy foam. Each sip is creamy, frothy, and slightly stronger than a latte, offering a satisfying coffee hit with texture.",
-      p3: "Cappuccinos are often enjoyed in the morning as a classic breakfast drink. They are also a favorite in cafés for their visual appeal and foam art, and they can be served with a sprinkle of cocoa or cinnamon for extra flavor.",
-
+      p1: "A cappuccino is equal parts espresso, steamed milk, and milk foam. The foam is thicker than a latte’s, giving the drink a light, airy feel while keeping the coffee strong.",
+      p2: "Cappuccinos are bold but balanced. The espresso hits hard, the milk softens it, and the foam lightens it up. The texture is creamy yet frothy, stronger than a latte but not as intense as straight espresso.",
+      p3: "Cappuccinos are a morning favorite, often topped with cocoa or cinnamon. They also make great foam art canvases and are served in smaller cups than lattes.",
       src: cappuccino,
       alt: "Image of Cappuccino",
       modalContent:
-        "A cappuccino consists of equal parts espresso, steamed milk, and milk foam. The rich espresso provides depth, while the milk and foam create a harmonious balance of strength and creaminess. The foamed layer also serves to insulate the drink, maintaining its warmth while offering a distinctive velvety mouthfeel.",
-
+        "A cappuccino balances espresso, milk, and foam in equal parts. Strong yet smooth, with a velvety mouthfeel thanks to the thick foam.",
       prereqs: [
-        "Fresh espresso beans (18–20g for double shot)",
+        "Espresso beans (18–20g for double shot)",
         "Filtered water (90–96°C)",
-        "Whole milk (cold, for frothing)",
-        "Fine grind size consistency",
-        "Knowledge of milk stretching (microfoam creation)",
+        "Cold whole milk",
+        "Consistent fine grind",
+        "Foam-making technique (stretching milk)",
       ],
       tools: [
-        "Espresso machine with reliable steam wand",
+        "Espresso machine with steam wand",
         "Burr grinder",
-        "Portafilter with basket",
-        "Tamper (fits snugly)",
-        "Milk pitcher (12oz stainless steel)",
+        "Portafilter + basket",
+        "Tamper",
+        "Milk pitcher (12oz)",
         "Cappuccino cup (150–180ml)",
         "Digital scale",
       ],
+      recipe1: "Brew a single or double espresso into a cappuccino cup.",
+      recipe2:
+        "Steam 120ml of cold milk, adding more air than for a latte to create thick, airy foam.",
+      recipe3:
+        "Pour the steamed milk into the espresso, then spoon the foam on top so the layers are 1:1:1 (espresso:milk:foam).",
+      recipe4: "Dust the top with cocoa powder or cinnamon if you like.",
       endline:
-        "A cappuccino is all about balance—1/3 espresso, 1/3 steamed milk, 1/3 foam. Nail the foam or don’t bother.",
+        "Cappuccino is balance in a cup—mess up the foam, and it’s ruined.",
     },
     {
       title: "Americano",
-      p1: "An Americano is made by pouring hot water over one or two shots of espresso. You need an espresso machine, fresh water, and finely ground coffee. This dilutes the espresso, creating a longer coffee similar in strength to drip coffee but richer in flavor.",
-      p2: "Americanos are smooth and slightly smoky, with a more diluted espresso flavor that makes them easier to sip than a straight shot. The texture is thin compared to lattes or cappuccinos, but the bold coffee taste remains.",
-      p3: "Americanos are ideal for those who want a longer coffee without losing the espresso essence. They can be enjoyed black or with milk and sugar, and they’re a popular choice for work or study sessions due to their drinkable size and moderate intensity.",
+      p1: "An Americano is just espresso diluted with hot water. Pour water over one or two shots, and you get a longer drink that tastes smoother and less intense.",
+      p2: "It’s thinner than a latte or cappuccino but still richer than regular drip coffee. The flavor is smoky, bold, and easy to sip over time.",
+      p3: "Americanos are go-to work or study coffees—big enough to sip slowly, customizable with milk or sugar, and less heavy than milk-based drinks.",
       src: "https://images.pexels.com/photos/25482736/pexels-photo-25482736.jpeg",
       alt: "Image of Americano",
+      modalContent:
+        "An Americano is espresso stretched with hot water. Think drip coffee’s smoother, richer cousin.",
+      prereqs: [
+        "Espresso beans (18–20g for double shot)",
+        "Filtered water (90–96°C)",
+        "Fine espresso grind",
+      ],
+      tools: [
+        "Espresso machine",
+        "Portafilter + basket",
+        "Tamper",
+        "Digital scale",
+        "Kettle or hot water source",
+        "Mug (240ml or more)",
+      ],
+      recipe1: "Brew a single or double shot of espresso into a large mug.",
+      recipe2: "Heat water until just below boiling (85–90°C).",
+      recipe3:
+        "Pour 120–150ml of hot water directly into the mug with espresso.",
+      recipe4: "Stir lightly. Add milk or sugar to taste if you prefer.",
+      endline: "Americano is espresso that learned to chill out and sip slow.",
     },
     {
       title: "Frappe",
-      p1: "A frappe is made by blending coffee (instant or espresso) with ice, milk or cream, and sometimes sugar or flavorings until frothy. You need a blender, cold coffee, ice, and optional flavorings. It’s a cold, sweet, and creamy drink that’s more like a dessert than a traditional coffee.",
-      p2: "Frappes are sweet, cold, and refreshing with a thick, frothy texture. The coffee flavor is there but softened by the ice and milk, making it easy to drink and highly customizable with syrups or toppings.",
-      p3: "Frappes are perfect for hot weather or as a treat, often served in cafés as a dessert-like beverage. They’re popular with students and young adults who want a cold, caffeinated pick-me-up that’s more playful than a standard espresso drink.",
+      p1: "A frappe is an iced coffee drink made by blending coffee, ice, milk (or cream), and sugar or flavorings until frothy. You need a blender, cold coffee, and ice—it’s more dessert than classic coffee.",
+      p2: "It’s cold, creamy, and sweet, with the coffee flavor softened by milk and ice. The texture is thick and refreshing, customizable with syrups, whipped cream, or toppings.",
+      p3: "Frappes are perfect for hot days or as a treat. They’re café staples for younger crowds and often more about fun and indulgence than pure coffee taste.",
       src: "https://images.pexels.com/photos/5211575/pexels-photo-5211575.jpeg",
       alt: "Image of Frappe",
+      modalContent:
+        "A frappe is a blended iced coffee drink, creamy and refreshing, often topped with syrups or whipped cream. Less about intensity, more about fun.",
+      prereqs: [
+        "Instant coffee or espresso",
+        "Cold milk or cream",
+        "Ice cubes",
+        "Sugar or syrup (optional)",
+      ],
+      tools: [
+        "Blender",
+        "Coffee source (instant/espresso)",
+        "Tall glass",
+        "Straw",
+        "Whipped cream can (optional)",
+      ],
+      recipe1:
+        "Prepare 2 tsp instant coffee with 30ml hot water, or pull 1 espresso shot, and let it cool.",
+      recipe2:
+        "Add cooled coffee, 200ml cold milk, a handful of ice cubes, and 1–2 tsp sugar/syrup into a blender.",
+      recipe3: "Blend on high until smooth, frothy, and thick.",
+      recipe4:
+        "Pour into a tall glass, top with whipped cream and drizzle with chocolate or caramel if you want.",
+      endline:
+        "Frappe is coffee’s sweet, frosty party trick—it’s basically dessert in a cup.",
     },
   ];
 
@@ -231,6 +291,11 @@ const Types = () => {
               prereqs={type.prereqs}
               tools={type.tools}
               endline={type.endline}
+              recipe1={type.recipe1}
+              recipe2={type.recipe2}
+              recipe3={type.recipe3}
+              recipe4={type.recipe4}
+              src={type.src}
             />
           ))}
         </div>

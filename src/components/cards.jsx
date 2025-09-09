@@ -13,6 +13,11 @@ const Cards = ({
   prereqs,
   tools,
   endline,
+  recipe1,
+  recipe2,
+  recipe3,
+  recipe4,
+  src,
 }) => {
   const paraClass =
     "lg:w-[60%] lg:text-justify lato-regular text-md lg:text-lg lg:pl-2 lg:border-l-1 lg:border-green-800/70 rounded-x-xl";
@@ -43,6 +48,11 @@ const Cards = ({
                   prereqs,
                   tools,
                   endline,
+                  recipe1,
+                  recipe2,
+                  recipe3,
+                  recipe4,
+                  src,
                 }}
                 onClose={() => setIsOpen(false)}
               />
