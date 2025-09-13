@@ -21,7 +21,7 @@ const Science = () => {
       gsap.from(ref.current, {
         scrollTrigger: {
           trigger: ref.current,
-          start: "center bottom",
+          start: "top top",
           end: "bottom bottom",
           toggleActions: "play none none reverse",
           scrub: true,
