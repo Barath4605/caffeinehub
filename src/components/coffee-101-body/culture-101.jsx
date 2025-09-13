@@ -20,10 +20,12 @@ const Culture = () => {
       globeRef.current,
       {
         opacity: 0,
+        y: 20,
       },
       {
         opacity: 1,
-        delay: 2,
+        y: 0,
+        delay: 1,
         ease: "power3.inOut",
       }
     );
@@ -278,7 +280,8 @@ const Culture = () => {
         ref={globeRef}
       >
         <h1 className="lg:text-5xl text-3xl text-center font-semibold almond-cream montserrat ">
-          Global View
+          Global View <br />
+          <span className="text-xs">hover over the points for full info</span>
         </h1>
         <div
           className={`h-[400px] w-[400px] lg:h-[700px] lg:w-[700px] cursor-crosshair`}
@@ -305,24 +308,25 @@ const Culture = () => {
                 // globeImageUrl={globeImage}
                 globeImageUrl="https://supermap.world/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcnhGIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--961f60e5ff365311ffc4d2202f8144ec3b6de00f/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RW5KbGMybDZaVjkwYjE5bWFYUmJCMmtDQUFwcEFnQUsiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--5aacfc5c6afa72d892e036749ba4495ef757dc1b/577176.png"
                 backgroundColor="rgba(0,0,0,0)"
-                // showAtmosphere
+                showAtmosphere
+                atmosphereColor="rgba(0,128,0,0)"
                 arcsData={coffeeLocations.map((loc, i) => ({
                   startLat: loc.lat,
                   startLng: loc.lng,
                   endLat: coffeeLocations[(i + 1) % coffeeLocations.length].lat,
                   endLng: coffeeLocations[(i + 1) % coffeeLocations.length].lng,
-                  color: ["#C4A484", "#ffffff"],
-                  arcAlt: 0.25,
+                  color: ["#C4A484", "#aaafff"],
+                  arcAlt: 0.1,
                 }))}
-                arcDashLength={0.9}
+                arcDashLength={1.2}
                 arcDashGap={0.2}
                 arcDashAnimateTime={3000}
-                arcStroke={1.2}
+                arcStroke={0.7}
                 pointsData={coffeeLocations}
                 pointLat={(d) => d.lat}
                 pointLng={(d) => d.lng}
-                pointColor={() => "lightblue"}
-                pointRadius={1.1}
+                pointColor={() => "green"}
+                pointRadius={0.5}
                 pointAltitude={0.02}
                 pointLabel={(d) =>
                   `<div style="padding:4px"><b>${
@@ -336,7 +340,7 @@ const Culture = () => {
                   propagationSpeed: 4,
                   repeatPeriod: 8000,
                 }))}
-                ringColor={() => ["+", "rgba(255,165,0,0)"]}
+                ringColor={() => ["+", "rgba(155,65,100,0)"]}
               />
             </div>
           </Suspense>
