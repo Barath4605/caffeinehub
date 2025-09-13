@@ -77,7 +77,6 @@ export const Tabs = ({
 };
 
 export const FadeInDiv = ({ className, tabs, hovering }) => {
-  // Only render the first (active) tab's content
   const tab = tabs[0];
   return (
     <div className="relative w-full h-full">

@@ -41,12 +41,12 @@ const Ingredients = () => {
       <div className="p-5 h-[80%] lg:h-[60%] overflow-scroll lg:flex lg:items-start lg:justify-around lg:mt-2 lg:border-t lg:border-white/30">
         <div>
           {/* prerequisites  */}
-          <h1 className="text-center text-3xl almond-cream font-semibold lg:text-start lg:text-4xl lg:p-2">
+          <h1 className="montserrat text-center text-3xl almond-cream font-semibold lg:text-start lg:text-4xl lg:p-2">
             Prerequisites
           </h1>
-          <ol className="lato font-md almond-cream pl-6 p-2 border-b lg:border-0 ">
+          <ol className="montserrat font-md almond-cream pl-6 p-2 border-b lg:border-0 ">
             {prereqs.map((prereq, i) => (
-              <li className="list-decimal mb-3 font-semibold lato" key={i}>
+              <li className="list-decimal mb-3 " key={i}>
                 {prereq}
               </li>
             ))}
@@ -54,12 +54,12 @@ const Ingredients = () => {
         </div>
         <div>
           {/* tools */}
-          <h1 className="text-center text-3xl almond-cream font-semibold lg:text-start lg:text-4xl lg:p-2">
+          <h1 className="montserrat text-center text-3xl almond-cream font-semibold lg:text-start lg:text-4xl lg:p-2">
             How to Make
           </h1>
-          <ul className="lato font-md almond-cream pl-6 p-2 border-b lg:border-0 ">
+          <ul className="montserrat font-md almond-cream pl-6 p-2 border-b lg:border-0 ">
             {tools.map((tool, idx) => (
-              <li className="list-decimal mb-3 font-semibold lato" key={idx}>
+              <li className="list-decimal mb-3 " key={idx}>
                 {tool}
               </li>
             ))}
