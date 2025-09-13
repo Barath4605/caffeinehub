@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { FiExternalLink } from "react-icons/fi";
-import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Link, Route, HashRouter as Router, Routes } from "react-router-dom";
 import CoffeePg from "./coffee-101";
 import HomepageModal from "./components/homepage-modal";
 import VideoPlayer from "./components/videos";
@@ -8,10 +8,10 @@ import "./index.css";
 
 const App = () => {
   const links = [
-    { href: "/coffee-101", label: "Coffee 101" },
-    { href: "/brewing-101", label: "Brewing 101" },
-    { href: "/beans-101", label: "Beans 101" },
-    { href: "/top-picks", label: "Our Top Picks" },
+    { href: "coffee-101", label: "Coffee 101" },
+    { href: "brewing-101", label: "Brewing 101" },
+    { href: "beans-101", label: "Beans 101" },
+    { href: "top-picks", label: "Our Top Picks" },
   ];
 
   const VideoLinks = [
@@ -58,26 +58,6 @@ const App = () => {
           path="/"
           element={
             <>
-              {/* <div className="absolute montserrat flex items-center space-x-5 z-10 justify-evenly w-full bottom-10">
-                <div>
-                  <HomepageModal />
-                </div>
-                <div className="group flex items-center space-x-2 cursor-pointer p-1">
-                  <span className="font-semibold text-white/70 group-hover:text-white transition-all ease-in-out duration-500">
-                    {currentVideoTag}
-                  </span>
-                  <a
-                    href="https://example.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/70 group-hover:text-white transition-all duration-500 "
-                  >
-                    <FiExternalLink />
-                  </a>
-                </div>
-                <div></div>
-                <div></div>
-              </div> */}
               <main className="relative h-screen bg-black">
                 <video
                   ref={videoRef}
