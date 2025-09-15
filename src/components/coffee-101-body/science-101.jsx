@@ -18,20 +18,28 @@ const Science = () => {
   useGSAP(() => {
     const sections = [scienceRef, factsRef, mythsRef, benefitsRef, endnoteRef];
     sections.forEach((ref) => {
-      gsap.from(ref.current, {
-        scrollTrigger: {
-          trigger: ref.current,
-          start: "top top",
-          end: "bottom bottom",
-          toggleActions: "play none none reverse",
-          scrub: true,
+      gsap.from(
+        ref.current,
+        {
+          scrollTrigger: {
+            trigger: ref.current,
+            start: "top bottom",
+            end: "bottom bottom",
+            toggleActions: "play none none reverse",
+            scrub: true,
+          },
+          scale: 0.9,
+          opacity: 0,
+          y: 50,
+          duration: 2,
+          ease: "linear",
         },
-        scale: 0.9,
-        opacity: 0,
-        y: 50,
-        duration: 2,
-        ease: "linear",
-      });
+        {
+          y: 20,
+          scale: 1,
+          opacity: 1,
+        }
+      );
     });
   }, []);
 

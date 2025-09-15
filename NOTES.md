@@ -38,3 +38,7 @@
 18. **Café Bombón** – espresso + sweetened condensed milk, concentrated sweetness.
 19. **Vienna Coffee** – espresso + whipped cream, fancy & rich.
 20. **Café Cubano** – espresso with sugar whipped into foam, intense & sweet.
+
+  <style>
+      @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Bungee&family=Great+Vibes&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nata+Sans:wght@100..900&family=Pinyon+Script&family=Playwrite+MX+Guides&family=Press+Start+2P&family=VT323&display=swap');
+    </style>
