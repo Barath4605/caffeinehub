@@ -5,5 +5,10 @@ import { defineConfig } from 'vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [tailwindcss(),react()],
-  base: '/caffeinehub/dist'
+  base: '/caffeinehub/dist',
+  build: {
+    rollupOptions: {
+      external: ['react-icons/fi'],
+    },
+  },
 })
