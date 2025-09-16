@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
 import { FiExternalLink } from "react-icons/fi";
 import { Link, Route, HashRouter as Router, Routes } from "react-router-dom";
+import BeansPg from "./beans-101";
+import BrewPg from "./brewing-101";
 import CoffeePg from "./coffee-101";
 import HomepageModal from "./components/homepage-modal";
 import VideoPlayer from "./components/videos";
@@ -142,6 +144,8 @@ const App = () => {
           }
         />
         <Route path="/coffee-101" element={<CoffeePg />} />
+        <Route path="/brewing-101" element={<BrewPg />} />
+        <Route path="/beans-101" element={<BeansPg />} />
       </Routes>
     </Router>
   );

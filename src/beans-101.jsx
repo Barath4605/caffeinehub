@@ -11,7 +11,7 @@ const fonts = [
   "vibes text-4xl",
 ];
 
-const Brewing = () => {
+const Beans = () => {
   const [fontIndex, setFontIndex] = useState(0);
 
   useEffect(() => {
@@ -22,12 +22,12 @@ const Brewing = () => {
   }, []);
 
   return (
-    <main className="bg-cherry-red text-vanilla flex flex-col relative">
+    <main className="bg-midnight text-pearl flex flex-col relative">
       <div className={`h-screen w-screen m-auto ${fonts[fontIndex]}`}>
         <h1
           className={`font-medium w-screen h-screen content-center text-center `}
         >
-          [ brewing something fresh ]
+          [ roasting the beans ]
         </h1>
       </div>
 
@@ -38,4 +38,4 @@ const Brewing = () => {
   );
 };
 
-export default Brewing;
+export default Beans;

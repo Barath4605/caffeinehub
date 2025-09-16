@@ -211,14 +211,6 @@
   background-color: #493628;
 }
 
-.vanilla {
-  color: #d6c0b3;
-}
-
-.bg-vanilla {
-  background-color: #d6c0b3;
-}
-
 .text-cherry-red {
   color: #9a0002;
 }
@@ -257,4 +249,46 @@
 
 .shadow-vanilla {
   box-shadow: 0 0 5px #efe6de;
+}
+
+/* pearl (#FFF7E6) */
+.text-pearl {
+  color: #fff7e6;
+}
+
+.bg-pearl {
+  background-color: #fff7e6;
+}
+
+.border-pearl {
+  border-color: #fff7e6;
+}
+
+.outline-pearl {
+  outline-color: #fff7e6;
+}
+
+.shadow-pearl {
+  box-shadow: 0 0 5px #fff7e6;
+}
+
+/* midnight (#102E4A) */
+.text-midnight {
+  color: #102e4a;
+}
+
+.bg-midnight {
+  background-color: #102e4a;
+}
+
+.border-midnight {
+  border-color: #102e4a;
+}
+
+.outline-midnight {
+  outline-color: #102e4a;
+}
+
+.shadow-midnight {
+  box-shadow: 0 0 5px #102e4a;
 }
