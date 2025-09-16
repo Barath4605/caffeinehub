@@ -118,7 +118,7 @@ const Science = () => {
           </div>
         </div>
 
-        <div className="m-auto max-w-4xl px-4">
+        <div className="m-auto mt-20 max-w-4xl px-4">
           <section
             ref={scienceRef}
             className="my-10 p-5 rounded-2xl bg-evergreen/20"

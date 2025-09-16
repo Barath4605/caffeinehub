@@ -4,13 +4,12 @@ import "../../index.css";
 import About from "./about";
 import { CoffeeContext } from "./coffeeContext.js";
 import Ingredients from "./ingredients";
-import Intensity from "./intensity";
 import Recipe from "./recipe";
 
 const TypesModal = ({ onClose, coffee, ingredients }) => {
-  const tabs = ["About", "Ingredients", "Recipe", "Intensity"];
+  const tabs = ["About", "Ingredients", "Recipe"];
   const [tab, setTab] = useState(0);
-  const tabStates = [<About />, <Ingredients />, <Recipe />, <Intensity />];
+  const tabStates = [<About />, <Ingredients />, <Recipe />];
 
   return createPortal(
     <CoffeeContext.Provider value={coffee}>
@@ -22,7 +21,7 @@ const TypesModal = ({ onClose, coffee, ingredients }) => {
           className="w-full lg:w-[70%] h-full lg:h-[80%] rounded-lg bg-white flex justify-between flex-col bg-evergreen-dark"
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex px-2 justify-end bg-evergreen-dark">
+          <div className="flex px-2 w-fit justify-end bg-evergreen-dark">
             <h1
               className="p-1 lato w-fit h-fit lg:h-full cursor-pointer text-white/50 hover:text-white"
               onClick={onClose}

@@ -2,15 +2,12 @@
   "name": "caffeinehub",
   "private": true,
   "version": "1.0.0",
-  "homepage": "https://caffhub.netlify.app/caffeinehub/dist/",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

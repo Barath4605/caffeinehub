@@ -27,7 +27,7 @@ const Cards = ({
   return (
     <>
       <section
-        className="p-3 m-3 lg:m-0 lg:p-5 cursor-pointer bg-almond-cream evergreen hover:scale-[1.01] hover:drop-shadow-[0_20px_25px_rgba(0,0,0,0.1),_0_10px_10px_rgba(0,0,0,0.04)] transition-all ease-in-out duration-300"
+        className="p-3 lg:m-0 lg:p-5 cursor-pointer bg-almond-cream evergreen hover:scale-[1.01] hover:drop-shadow-[0_20px_25px_rgba(0,0,0,0.1),_0_10px_10px_rgba(0,0,0,0.04)] transition-all ease-in-out duration-300"
         onClick={() => setIsOpen(true)}
       >
         <h1 className="text-5xl lato-bold text-center lg:pb-0 lg:border-none pb-2 border-b border-green-800/70 lg:text-start evergreen my-3 ">
