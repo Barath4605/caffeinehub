@@ -123,7 +123,7 @@ const Instant = () => {
             Instant Coffee: The Quick & Dirty
           </h1>
           <p
-            className="lg:w-[60%] p-2 text-justify m-auto my-10 lato-regular text-md almond-cream"
+            className="lg:w-[60%] p-2 text-center lg:text-justify m-auto my-10 lato-regular text-md almond-cream"
             id="headerPara"
           >
             Love it or hate it, instant coffee is a modern marvel. It’s the

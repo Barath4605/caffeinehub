@@ -259,7 +259,7 @@ const Types = () => {
             The Barista Populars 101
           </h1>
           <p
-            className="lg:w-[60%] lg:text-justify m-auto my-10 lato-regular text-md almond-cream"
+            className="lg:w-[60%] text-center lg:text-justify m-auto my-10 lato-regular text-md almond-cream"
             id="headerPara"
           >
             No matter how much you know about coffee in this section you get to

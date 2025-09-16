@@ -309,15 +309,14 @@ const Culture = () => {
           The Culture of Coffee
         </h1>
         <p
-          className="lg:w-[60%] lg:text-justify m-auto my-10 lato-regular text-md"
+          className="lg:w-[60%] text-center lg:text-justify m-auto my-10 lato-regular text-md"
           id="headerPara"
         >
-          caffeine isn’t just a chemical kick—it’s a culture, ritual, and
-          survival tool. it fuels everything from ancient tea ceremonies to
-          neon-lit coffeehouses. energy drinks power restless nights, while
-          espresso fuels morning wars. it shapes creativity, productivity,
-          identity, and even social status. this blog dives deep into how
-          caffeine became the heartbeat of modern society.
+          Caffeine isn’t just a chemical kick, it’s a culture, ritual, and
+          survival tool. It fuels everything from ancient tea ceremonies to
+          neon-lit coffeehouses. Energy drinks power restless nights, while
+          espresso fuels morning wars. Shapes creativity, productivity,
+          identity, and even social status.
         </p>
         {isMobile && (
           <div id="mobile-scrollDown">
@@ -334,27 +333,17 @@ const Culture = () => {
           <span className="text-xs">hover over the points for full info</span>
         </h1>
         <div
-          className={`h-[400px] w-[400px] lg:h-[700px] lg:w-[700px] cursor-crosshair`}
+          className={`h-[300px] w-[300px] lg:h-[700px] lg:w-[700px] cursor-crosshair`}
         >
           <Suspense
             fallback={
               <div className="text-center text-white">Loading Globe...</div>
             }
           >
-            {/* <Worldmap
-              globeConfig={globeConfig}
-              pointLight="blue"
-              data={coffeeLocations}
-              arcLength={0.35}
-              arcDashGap={0.7}
-              arcDashAnimateTime={4000}
-              arcAltitude={0.3}
-              arcStroke={1}
-            /> */}
             <div className="rounded-full">
               <Globe
-                width={isMobile ? 400 : 700}
-                height={isMobile ? 400 : 700}
+                width={isMobile ? 350 : 700}
+                height={isMobile ? 350 : 700}
                 // globeImageUrl={globeImage}
                 globeImageUrl="https://supermap.world/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcnhGIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--961f60e5ff365311ffc4d2202f8144ec3b6de00f/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RW5KbGMybDZaVjkwYjE5bWFYUmJCMmtDQUFwcEFnQUsiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--5aacfc5c6afa72d892e036749ba4495ef757dc1b/577176.png"
                 backgroundColor="rgba(0,0,0,0)"

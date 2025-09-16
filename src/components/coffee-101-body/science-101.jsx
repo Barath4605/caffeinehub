@@ -100,7 +100,7 @@ const Science = () => {
             Caffeine Science 101
           </h1>
           <p
-            className="lg:w-[60%] text-justify m-auto my-10 lato-regular text-md almond-cream"
+            className="lg:w-[60%] text-center lg:text-justify m-auto my-10 lato-regular text-md almond-cream"
             id="headerPara"
           >
             Dive into the raw, unfiltered truth about caffeine. Forget the
@@ -108,9 +108,7 @@ const Science = () => {
             breakdown of how caffeine hijacks your brain, fuels your hustle, and
             occasionally beats the crap out of your nervous system. By the end,
             you’ll see it's not an angel, not a demon—it’s a tricky chemical
-            that plays both sides. Coffee beans, energy drinks, tea ceremonies,
-            pre-workout shots—they’re all part of the same ancient, global
-            relationship between humans and this sneaky psychoactive drug.
+            that plays both sides.
           </p>
 
           <div id="mobile-scrollDown">
