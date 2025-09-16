@@ -8,8 +8,11 @@ import Recipe from "./recipe";
 
 const TypesModal = ({ onClose, coffee, ingredients }) => {
   const tabs = ["About", "Ingredients", "Recipe"];
+  // keep references to *components*, not already-instantiated JSX
+  const tabComponents = [About, Ingredients, Recipe];
   const [tab, setTab] = useState(0);
-  const tabStates = [<About />, <Ingredients />, <Recipe />];
+
+  const ActiveTab = tabComponents[tab];
 
   return createPortal(
     <CoffeeContext.Provider value={coffee}>
@@ -18,9 +21,10 @@ const TypesModal = ({ onClose, coffee, ingredients }) => {
         onClick={onClose}
       >
         <div
-          className="w-full lg:w-[70%] h-full lg:h-[80%] rounded-lg bg-white flex justify-between flex-col bg-evergreen-dark"
+          className="w-screen lg:w-[70%] h-full lg:h-[80%] rounded-lg bg-white flex flex-col bg-evergreen-dark"
           onClick={(e) => e.stopPropagation()}
         >
+          {/* Close Button and Tabs Section - No changes here, they are fine */}
           <div className="flex px-2 w-fit justify-end bg-evergreen-dark">
             <h1
               className="p-1 lato w-fit h-fit lg:h-full cursor-pointer text-white/50 hover:text-white"
@@ -29,7 +33,9 @@ const TypesModal = ({ onClose, coffee, ingredients }) => {
               X
             </h1>
           </div>
-          <div className="flex text-white/60 lato lg:justify-center p-2 justify-around m-auto overflow-x-scroll w-[80%]">
+
+          {/* tabs */}
+          <div className="flex text-white/60 lato lg:justify-center justify-around m-auto overflow-x-scroll w-[80%]">
             {tabs.map((tabName, index) => (
               <button
                 key={tabName}
@@ -44,7 +50,11 @@ const TypesModal = ({ onClose, coffee, ingredients }) => {
               </button>
             ))}
           </div>
-          <div className="flex-1 justify-between">{tabStates[tab]}</div>
+
+          {/* This is the key change. We've removed flex-1 and given it a specific height with overflow-auto */}
+          <div className="flex-1 overflow-y-auto" key={tab}>
+            <ActiveTab />
+          </div>
         </div>
       </div>
     </CoffeeContext.Provider>,

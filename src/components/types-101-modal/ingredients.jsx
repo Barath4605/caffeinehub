@@ -29,7 +29,7 @@ const Ingredients = () => {
   const { prereqs = [], tools = [], endline = "" } = useCoffee();
 
   return (
-    <article className="lg:p-3">
+    <article className="lg:p-3 flex-1 flex-col h-full">
       <div className="lg:flex montserrat almond-cream lg:items-end items-center px-2">
         <h2 className="text-4xl font-bold lg:px-3 py-1 border-b lg:border-b-0 lg:border-r w-fit border-white">
           Ingredients
