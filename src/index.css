@@ -218,3 +218,43 @@
 .bg-vanilla {
   background-color: #d6c0b3;
 }
+
+.text-cherry-red {
+  color: #9a0002;
+}
+
+.bg-cherry-red {
+  background-color: #9a0002;
+}
+
+.border-cherry-red {
+  border-color: #9a0002;
+}
+
+.outline-cherry-red {
+  outline-color: #9a0002;
+}
+
+.shadow-cherry-red {
+  box-shadow: 0 0 5px #9a0002;
+}
+
+.text-vanilla {
+  color: #efe6de;
+}
+
+.bg-vanilla {
+  background-color: #efe6de;
+}
+
+.border-vanilla {
+  border-color: #efe6de;
+}
+
+.outline-vanilla {
+  outline-color: #efe6de;
+}
+
+.shadow-vanilla {
+  box-shadow: 0 0 5px #efe6de;
+}

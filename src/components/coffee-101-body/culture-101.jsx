@@ -1,5 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
 import { lazy, Suspense, useEffect, useMemo, useRef } from "react";
 import Globe from "react-globe.gl";
 import "../../index.css";
@@ -7,8 +9,56 @@ import "../../index.css";
 const Worldmap = lazy(() => import("../ui/Globe"));
 const Timeline = lazy(() => import("../ui/Timeline"));
 
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(SplitText);
+
 const Culture = () => {
   const globeRef = useRef(null);
+
+  useGSAP(() => {
+    const split = SplitText.create("#header", {
+      type: "words, chars, lines",
+    });
+    gsap.from(split.words, {
+      autoAlpha: 0,
+      y: 50,
+      stagger: 0.05,
+      delay: 1,
+      duration: 1,
+      ease: "back.out(1.7)",
+    });
+  });
+
+  useGSAP(() => {
+    const split = SplitText.create("#headerPara", {
+      type: "words, chars, lines",
+    });
+    gsap.from(split.words, {
+      autoAlpha: 0,
+      delay: 2,
+      y: 40,
+      stagger: {
+        amount: 0.4,
+        from: "end",
+      },
+    });
+  });
+
+  useGSAP(() => {
+    const split = SplitText.create("#mobile-scrollDown", {
+      type: "lines, words",
+    });
+    gsap.from(split.words, {
+      autoAlpha: 0,
+      delay: 5,
+      y: 20,
+      scale: 0.3,
+      stagger: {
+        amount: 0.5,
+        from: "end",
+      },
+    });
+  });
 
   useEffect(() => {
     import("../ui/Globe");
@@ -25,7 +75,7 @@ const Culture = () => {
       {
         opacity: 1,
         y: 0,
-        delay: 1,
+        delay: 4,
         ease: "power3.inOut",
       }
     );
@@ -356,9 +406,9 @@ const Culture = () => {
         </Suspense>
       </div>
 
-      <div className="lg:p-10 montserrat p-3 mb-5 lg:mt-10 border-t border-amber-50 w-[80%] m-auto">
-        <p className="text-4xl font-bold mb-5">To Wrap Up...</p>
-        <p className="lg:text-lg text-md mb-5 text-justify">
+      <div className="lg:p-10 montserrat p-3 mb-5 lg:mt-10 border-t border-amber-50 lg:w-[70%] m-auto">
+        <p className="text-3xl font-bold mb-5">To Wrap Up...</p>
+        <p className="text-md mb-5 text-justify">
           it’s a cultural spark. from ancient rituals to modern cafés, it’s
           powered ideas, fueled debates, and wired generations. its evolution
           mirrors us: restless, curious, addicted to progress. one sip, and
