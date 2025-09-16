@@ -333,17 +333,17 @@ const Culture = () => {
           <span className="text-xs">hover over the points for full info</span>
         </h1>
         <div
-          className={`h-[300px] w-[300px] lg:h-[700px] lg:w-[700px] cursor-crosshair`}
+          className={`h-[280px] w-[280px] lg:h-[700px] lg:w-[700px] cursor-crosshair`}
         >
           <Suspense
             fallback={
               <div className="text-center text-white">Loading Globe...</div>
             }
           >
-            <div className="rounded-full">
+            <div className="rounded-full m-auto">
               <Globe
-                width={isMobile ? 350 : 700}
-                height={isMobile ? 350 : 700}
+                width={isMobile ? 300 : 700}
+                height={isMobile ? 300 : 700}
                 // globeImageUrl={globeImage}
                 globeImageUrl="https://supermap.world/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcnhGIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--961f60e5ff365311ffc4d2202f8144ec3b6de00f/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RW5KbGMybDZaVjkwYjE5bWFYUmJCMmtDQUFwcEFnQUsiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--5aacfc5c6afa72d892e036749ba4495ef757dc1b/577176.png"
                 backgroundColor="rgba(0,0,0,0)"

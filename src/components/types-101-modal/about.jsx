@@ -70,7 +70,7 @@ const About = () => {
         <h1 className="vibes text-8xl lg:text-[108px] lg:pr-4 p-2 almond-cream evergreen text-center shrink-0 lg:w-[40%] lg:border-r lg:border-green-700">
           {title}
         </h1>
-        <p className="flex-1 overflow-y-auto px-4 lato font-semibold evergreen text-center text-xl lg:text-start">
+        <p className="flex-1 overflow-y-auto px-4 lato font-semibold evergreen text-center text-xl lg:text-start content-center">
           {content}
         </p>
       </div>
