@@ -55,6 +55,7 @@ const CoffeePg = () => {
         <Header
           title="Coffee 101"
           tagline="an espresso before the depresso"
+          userClass="bg-evergreen almond-cream montserrat"
         ></Header>
         <Tabs
           tabs={tabs.map((tab, index) => ({

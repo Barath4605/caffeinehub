@@ -342,8 +342,8 @@ const Culture = () => {
           >
             <div className="rounded-full m-auto">
               <Globe
-                width={isMobile ? 300 : 700}
-                height={isMobile ? 300 : 700}
+                width={isMobile ? 330 : 700}
+                height={isMobile ? 330 : 700}
                 // globeImageUrl={globeImage}
                 globeImageUrl="https://supermap.world/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcnhGIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--961f60e5ff365311ffc4d2202f8144ec3b6de00f/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RW5KbGMybDZaVjkwYjE5bWFYUmJCMmtDQUFwcEFnQUsiLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--5aacfc5c6afa72d892e036749ba4495ef757dc1b/577176.png"
                 backgroundColor="rgba(0,0,0,0)"
@@ -365,7 +365,7 @@ const Culture = () => {
                 pointLat={(d) => d.lat}
                 pointLng={(d) => d.lng}
                 pointColor={() => "green"}
-                pointRadius={0.5}
+                pointRadius={isMobile ? 2 : 0.8}
                 pointAltitude={0.02}
                 pointLabel={(d) =>
                   `<div style="padding:4px"><b>${
