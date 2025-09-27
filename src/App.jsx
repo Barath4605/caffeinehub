@@ -96,7 +96,7 @@ const App = () => {
                       </h2>
                     </div>
                     <div>
-                      <ul className="flex flex-wrap justify-center gap-3 sm:gap-5 p-2 text-white">
+                      <ul className="flex flex-wrap justify-center montserrat gap-3 sm:gap-5 p-2 text-white">
                         {links.map((link) => (
                           <li key={link.label} className="text-white">
                             <Link
