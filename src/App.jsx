@@ -12,30 +12,28 @@ const App = () => {
   const links = [
     { href: "coffee-101", label: "Coffee 101" },
     { href: "brewing-101", label: "Brewing 101" },
-    { href: "beans-101", label: "Beans 101" },
-    { href: "top-picks", label: "Our Top Picks" },
   ];
 
   const VideoLinks = [
     {
       src: "https://assets.mixkit.co/videos/3576/3576-720.mp4",
-      tag: "perfect the art of steaming milk and creating silky microfoams",
+      tag: "Keep the wand just under the surface until it 'hisses', then bury it to heat without making bubbles explode everywhere",
     },
     {
       src: "https://assets.mixkit.co/videos/41859/41859-720.mp4",
-      tag: "Master the art of pouring your soul into every latte.",
+      tag: "Pour steady and low. Control the flow, don’t splash like a maniac.",
     },
     {
       src: "https://assets.mixkit.co/videos/47954/47954-720.mp4",
-      tag: "Brew the extravagant shot of espresso",
+      tag: "use fine grind + 18–20g coffee and aim for ~25–30 sec. TOO fast = weak, TOO slow = bitter.",
     },
     {
       src: "https://videos.pexels.com/video-files/7301092/7301092-uhd_2560_1440_25fps.mp4",
-      tag: "Learn how to use a French press much more Equipments...",
+      tag: "Use coarse grounds, pour hot water, wait 4 min, then press down slow and smooth for a clean, rich cup.",
     },
     {
       src: "https://videos.pexels.com/video-files/6280329/6280329-uhd_2560_1440_25fps.mp4",
-      tag: "Explore the world of coffee beans, it's origin and more",
+      tag: "Light = bright & fruity, Medium = balanced & sweet, Dark = bold & smoky.",
     },
   ];
 
@@ -115,21 +113,13 @@ const App = () => {
                 {/* bottom info */}
                 <div className="absolute montserrat flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-5 z-10 justify-around w-full bottom-4 sm:bottom-10 px-4">
                   <HomepageModal />
-                  <div className="group flex justify-center items-center h-[30px] lg:w-[500px] space-x-2 cursor-pointer p-1 text-center sm:text-left">
-                    <span className="font-semibold text-white/70 m-auto group-hover:text-white transition-all ease-in-out duration-500 text-xs md:text-md sm:text-base">
+                  <div className="group flex justify-center items-center h-[30px] lg:w-[600px] space-x-2 cursor-pointer p-1 text-center sm:text-left">
+                    <div className="font-semibold text-white/70 m-auto group-hover:text-white transition-all ease-in-out duration-500 text-xs md:text-md sm:text-base">
                       {currentVideoTag}
-                    </span>
-                    <a
-                      href="https://example.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white/70 text-sm sm:text-base group-hover:text-white transition-all duration-500"
-                    >
-                      <FiExternalLink />
-                    </a>
+                    </div>
                   </div>
-                  <div> </div>
-                  <div> </div>
+                    <div></div>
+                    <div></div>
                 </div>
 
                 <VideoPlayer
@@ -145,7 +135,6 @@ const App = () => {
         />
         <Route path="/coffee-101" element={<CoffeePg />} />
         <Route path="/brewing-101" element={<BrewPg />} />
-        <Route path="/beans-101" element={<BeansPg />} />
       </Routes>
     </Router>
   );
